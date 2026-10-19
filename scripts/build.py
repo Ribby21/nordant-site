@@ -224,7 +224,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
 <p>If this policy changes, the new version will be posted here with a new date.</p>
 
 <h2>Contact</h2>
-<p>ribby.dev LLC &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></p>
+<p>ribby.dev LLC, Inver Grove Heights, Minnesota, USA &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></p>
 </main>
 """)
 
@@ -260,10 +260,10 @@ page("terms.html", "Terms of service", "The terms for playing Nordant: your acco
 <p>How we handle your information is in the <a href="/privacy">privacy policy</a>.</p>
 
 <h2>Changes and law</h2>
-<p>We may update these terms; the new version will be posted here with a new date, and playing after that means you accept it. These terms are governed by the laws of the United States and of the state where ribby.dev LLC is organized.</p>
+<p>We may update these terms; the new version will be posted here with a new date, and playing after that means you accept it. These terms are governed by the laws of the State of Minnesota, USA.</p>
 
 <h2>Contact</h2>
-<p>ribby.dev LLC &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></p>
+<p>ribby.dev LLC, Inver Grove Heights, Minnesota, USA &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></p>
 </main>
 """)
 
