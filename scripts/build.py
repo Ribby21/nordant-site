@@ -19,7 +19,7 @@ def feature(title, text):
 
 
 shots = "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
-    ("01-skyway", "A match on Skyway, downtown Minneapolis in winter"),
+    ("01-skyway", "A match on Skyway, a city in winter"),
     ("03-falls", "Fighting around the falls on Minnehaha"),
     ("04-zamboni", "The Zamboni crossing the quarry rink on Sandstone"),
     ("02-buy", "Buying guns and grenades at the start of a round"),
@@ -28,61 +28,44 @@ shots = "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" wi
 ])
 tiers = "".join(f'<span class="tier t-{t.lower()}">{t}</span>' for t in TIERS)
 
+
+def point(title, text):
+    return f'<div class="point"><h3>{title}</h3><p>{text}</p></div>'
+
+
 page("index.html", "Nordant", "Nordant is a tactical 5v5 trick-shot shooter for your phone, played as a sport. Bank your shots, climb the ranks, squad up.", "/", f"""<main>
-<div class="hero"><img src="/assets/hero.jpg" alt="Nordant: a match on a snowy rooftop in downtown Minneapolis" width="1024" height="500"></div>
+<div class="hero"><img src="/assets/hero.jpg" alt="Nordant: a match on a snowy rooftop" width="1024" height="500"></div>
 <section class="pitch">
   <h1>Tactical 5v5 for your phone.</h1>
-  <p>Two clubs, five a side, first to six rounds. Bank a shot off the wall, arm the core, and climb from Slush to Aurora with your friends.</p>
+  <p>Two clubs, five a side, first to six rounds. Bank your shots, climb the ranks, squad up.</p>
   <div class="badges">{BADGE}</div>
   <p class="soon">Launching soon on Google Play.</p>
 </section>
 
 <div class="wrap">
 <section class="section">
-  <p class="kicker">How it plays</p>
-  <h2>A shooter played as a sport</h2>
-  <div class="features">
-    {feature("Ranked play", "Every online match is ranked. Matchmaking looks for players near your level, and if a seat stays empty a bot takes it, so the match still starts.")}
-    {feature("Squad up", "Add friends by their tag, see who's online, and invite them to your party. Parties queue together and always play on the same side.")}
-    {feature("Trick shots", "The Skipstone's bullets bounce off walls. Bank a shot round a corner: a knockout off the bounce is a trick shot, and the stands go wild.")}
-    {feature("Every round counts", "Buy your gear each round with what you've earned: pistols, a shotgun, an SMG, rifles, snipers, armor and grenades. Save when you're short, spend when it counts.")}
-  </div>
-</section>
-
-<section class="section">
-  <p class="kicker">The arenas</p>
-  <h2>Minnesota places, with moving parts</h2>
-  <div class="features">
-    {feature("Sandstone", "A quarry rink where the Zamboni has the right of way.")}
-    {feature("Minnehaha", "Fight around the falls, 53 feet down.")}
-    {feature("Skyway", "Downtown Minneapolis in winter, on the street and up in the glass and steel.")}
-  </div>
-</section>
-
-<section class="section">
   <div class="shots">{shots}</div>
 </section>
 
 <section class="section">
-  <p class="kicker">The ranks</p>
-  <h2>Eight tiers to climb</h2>
-  <div class="tiers">{tiers}</div>
-  <p class="muted">See who's on top: <a href="/leaderboard">the leaderboard</a>.</p>
+  <h2>How it plays</h2>
+  <div class="points">
+    {point("Ranked", "Every online match is ranked. Climb eight tiers with your friends.")}
+    {point("Trick shots", "Bank a bullet off the wall and round the corner for the knockout.")}
+    {point("Every round counts", "Buy your gear each round with what you've earned. Save, or spend.")}
+    {point("Three arenas", "A quarry rink with a Zamboni, a fight round the falls, and a city in winter.")}
+  </div>
 </section>
 
 <section class="section">
-  <p class="kicker">Seasons</p>
-  <h2>A new season every three months</h2>
-  <div class="features">
-    {feature("The season pass", "Fifty tiers of rewards, on a free track and a premium one. Level up by playing matches and finishing daily and weekly challenges.")}
-    {feature("Your look", "Rings, trails, hats and gun skins from the Bait Shop and the season pass, worn from the Locker. Skins change how you look, never how you play.")}
-    {feature("Bots any time", "Bots that talk to each other, rotate between zones, use smoke and hold angles. Play a full match against them at the skill you pick.")}
-  </div>
+  <h2>Climb the ranks</h2>
+  <div class="tiers">{tiers}</div>
+  <p class="muted">A new season every three months, with a free track, a premium pass, and daily and weekly challenges. See who's on top on <a href="/leaderboard">the leaderboard</a>.</p>
 </section>
 </div>
 
 <section class="cta">
-  <h2>Grab your gear and drop in.</h2>
+  <h2>Drop in.</h2>
   <div class="badges">{BADGE}</div>
 </section>
 </main>
@@ -241,7 +224,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
 <p>If this policy changes, the new version will be posted here with a new date.</p>
 
 <h2>Contact</h2>
-<p>ribby.dev LLC, Inver Grove Heights, Minnesota, USA &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></p>
+<p>ribby.dev LLC &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></p>
 </main>
 """)
 
@@ -277,10 +260,10 @@ page("terms.html", "Terms of service", "The terms for playing Nordant: your acco
 <p>How we handle your information is in the <a href="/privacy">privacy policy</a>.</p>
 
 <h2>Changes and law</h2>
-<p>We may update these terms; the new version will be posted here with a new date, and playing after that means you accept it. These terms are governed by the laws of the State of Minnesota, USA.</p>
+<p>We may update these terms; the new version will be posted here with a new date, and playing after that means you accept it. These terms are governed by the laws of the United States and of the state where ribby.dev LLC is organized.</p>
 
 <h2>Contact</h2>
-<p>ribby.dev LLC, Inver Grove Heights, Minnesota, USA &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></p>
+<p>ribby.dev LLC &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></p>
 </main>
 """)
 

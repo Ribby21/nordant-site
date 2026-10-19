@@ -15,7 +15,7 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--ink); color: var(--text); font: 500 17px/1.6 var(--body); }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--amber); }
 a:hover { color: #ffd27a; }
 
@@ -49,13 +49,31 @@ a:hover { color: #ffd27a; }
 .feature p { color: var(--muted); margin: 0; font-size: 16px; }
 
 .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; scrollbar-width: thin; }
-.shots img { flex: 0 0 auto; width: min(78vw, 640px); aspect-ratio: 16 / 9; border-radius: 12px; border: 1px solid var(--line); scroll-snap-align: start; }
+.shots img { flex: 0 0 auto; width: min(86vw, 560px); height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); scroll-snap-align: start; }
 
 .tiers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .tier { font: 700 15px/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; background: var(--steel-2); }
 
 .cta { text-align: center; padding: 72px 16px 24px; }
 .cta h2 { font: 700 clamp(28px, 4.5vw, 40px)/1.1 var(--display); margin: 0 0 22px; }
+
+/* What the game is, in four lines: side by side on a wide screen, one under another on a phone. */
+.points { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.point { border-top: 2px solid var(--amber); padding-top: 14px; }
+.point h3 { font: 700 21px/1.2 var(--display); letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 6px; }
+.point p { color: var(--muted); margin: 0; font-size: 16px; }
+@media (max-width: 900px) { .points { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) {
+  .points { grid-template-columns: 1fr; gap: 0; }
+  .point { border-top: 1px solid var(--line); padding: 16px 0; }
+  .point h3 { color: var(--amber); font-size: 19px; }
+  .section { padding: 40px 0 0; }
+  .section h2, .cta h2 { font-size: 28px; margin-bottom: 18px; }
+  .pitch { margin-top: -8px; }
+  .pitch p { font-size: 17px; }
+  .badges img { height: 56px; }
+  .cta { padding: 48px 16px 8px; }
+}
 
 /* Text pages: privacy, terms, support, deleting an account. */
 .prose { max-width: 760px; margin: 0 auto; padding: 44px 16px 64px; }
