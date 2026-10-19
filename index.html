@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nordant</title>
-  <meta name="description" content="Nordant is a tactical 5v5 trick-shot shooter for your phone, played as a sport. Bank your shots, climb the ranks, squad up.">
+  <meta name="description" content="Nordant is a tactical 5v5 shooter played as a sport: Forwards arm the core, Defensemen hold the line. Climb the ranks, squad up.">
   <link rel="canonical" href="https://playnordant.com/">
   <meta property="og:title" content="Nordant">
-  <meta property="og:description" content="Nordant is a tactical 5v5 trick-shot shooter for your phone, played as a sport. Bank your shots, climb the ranks, squad up.">
+  <meta property="og:description" content="Nordant is a tactical 5v5 shooter played as a sport: Forwards arm the core, Defensemen hold the line. Climb the ranks, squad up.">
   <meta property="og:url" content="https://playnordant.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://playnordant.com/assets/og-image.jpg">
@@ -30,22 +30,22 @@
 <main>
 <div class="hero"><img src="/assets/hero.jpg" alt="Nordant: a match on a snowy rooftop" width="1024" height="500"></div>
 <section class="pitch">
-  <h1>Tactical 5v5 for your phone.</h1>
-  <p>Two clubs, five a side, first to six rounds. Bank your shots, climb the ranks, squad up.</p>
+  <h1>Arm the core. Hold the line.</h1>
+  <p>Two clubs, five a side, first to six rounds. Climb the ranks, squad up.</p>
   <div class="badges"><a href="https://play.google.com/store/apps/details?id=dev.ribby.nordant"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a></div>
   <p class="soon">Launching soon on Google Play.</p>
 </section>
 
 <div class="wrap">
 <section class="section">
-  <div class="shots"><img src="/assets/shots/01-skyway.jpg" alt="A match on Skyway, a city in winter" loading="lazy" width="1280" height="720"><img src="/assets/shots/03-falls.jpg" alt="Fighting around the falls on Minnehaha" loading="lazy" width="1280" height="720"><img src="/assets/shots/04-zamboni.jpg" alt="The Zamboni crossing the quarry rink on Sandstone" loading="lazy" width="1280" height="720"><img src="/assets/shots/02-buy.jpg" alt="Buying guns and grenades at the start of a round" loading="lazy" width="1280" height="720"><img src="/assets/shots/05-ranked.jpg" alt="The ranked screen with your tier and party" loading="lazy" width="1280" height="720"><img src="/assets/shots/06-friends.jpg" alt="Friends online and in a match" loading="lazy" width="1280" height="720"></div>
+  <div class="shots"><button class="trailer" type="button" data-video="qVmr52RGyxM" aria-label="Play the Nordant trailer"><img src="/assets/shots/trailer-poster.jpg" alt="" width="1280" height="720"><span class="play" aria-hidden="true"></span><span class="label">Watch the trailer</span></button><img src="/assets/shots/01-zone.jpg" alt="Defending a zone on Minnehaha" loading="lazy" width="1280" height="720"><img src="/assets/shots/03-falls.jpg" alt="Fighting around the falls on Minnehaha" loading="lazy" width="1280" height="720"><img src="/assets/shots/04-zamboni.jpg" alt="The Zamboni crossing the quarry rink on Sandstone" loading="lazy" width="1280" height="720"><img src="/assets/shots/02-buy.jpg" alt="Buying guns and grenades at the start of a round" loading="lazy" width="1280" height="720"><img src="/assets/shots/05-ranked.jpg" alt="The ranked screen with your tier and party" loading="lazy" width="1280" height="720"><img src="/assets/shots/06-friends.jpg" alt="Friends online and in a match" loading="lazy" width="1280" height="720"></div>
 </section>
 
 <section class="section">
   <h2>How it plays</h2>
   <div class="points">
     <div class="point"><h3>Ranked</h3><p>Every online match is ranked. Climb eight tiers with your friends.</p></div>
-    <div class="point"><h3>Trick shots</h3><p>Bank a bullet off the wall and round the corner for the knockout.</p></div>
+    <div class="point"><h3>Forwards and Defensemen</h3><p>Forwards carry the core into a zone and arm it. Defensemen hold the zones and stop them. Sides swap at halftime.</p></div>
     <div class="point"><h3>Every round counts</h3><p>Buy your gear each round with what you've earned. Save, or spend.</p></div>
     <div class="point"><h3>Three arenas</h3><p>A quarry rink with a Zamboni, a fight round the falls, and a city in winter.</p></div>
   </div>
@@ -63,6 +63,20 @@
   <div class="badges"><a href="https://play.google.com/store/apps/details?id=dev.ribby.nordant"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a></div>
 </section>
 </main>
+<script>
+// The trailer: YouTube (its no-cookie player) only once the picture of it is tapped.
+document.querySelectorAll(".trailer").forEach(function (button) {
+  button.addEventListener("click", function () {
+    var frame = document.createElement("iframe");
+    frame.className = "trailer";
+    frame.src = "https://www.youtube-nocookie.com/embed/" + button.dataset.video + "?autoplay=1&rel=0&playsinline=1";
+    frame.title = "Nordant trailer";
+    frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    frame.allowFullscreen = true;
+    button.replaceWith(frame);
+  });
+});
+</script>
 <footer class="foot"><div class="foot-in">
   <a href="/leaderboard">Leaderboard</a>
   <a href="/support">Support</a>

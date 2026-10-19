@@ -18,8 +18,14 @@ def feature(title, text):
     return f'<div class="feature"><h3>{title}</h3><p>{text}</p></div>'
 
 
-shots = "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
-    ("01-skyway", "A match on Skyway, a city in winter"),
+# The trailer first: a picture of it, and YouTube only once it's tapped (no YouTube until then,
+# and the page stays light on a phone).
+TRAILER = "qVmr52RGyxM"
+trailer = ('<button class="trailer" type="button" data-video="' + TRAILER + '" aria-label="Play the Nordant trailer">'
+           '<img src="/assets/shots/trailer-poster.jpg" alt="" width="1280" height="720">'
+           '<span class="play" aria-hidden="true"></span><span class="label">Watch the trailer</span></button>')
+shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
+    ("01-zone", "Defending a zone on Minnehaha"),
     ("03-falls", "Fighting around the falls on Minnehaha"),
     ("04-zamboni", "The Zamboni crossing the quarry rink on Sandstone"),
     ("02-buy", "Buying guns and grenades at the start of a round"),
@@ -33,11 +39,11 @@ def point(title, text):
     return f'<div class="point"><h3>{title}</h3><p>{text}</p></div>'
 
 
-page("index.html", "Nordant", "Nordant is a tactical 5v5 trick-shot shooter for your phone, played as a sport. Bank your shots, climb the ranks, squad up.", "/", f"""<main>
+page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a sport: Forwards arm the core, Defensemen hold the line. Climb the ranks, squad up.", "/", f"""<main>
 <div class="hero"><img src="/assets/hero.jpg" alt="Nordant: a match on a snowy rooftop" width="1024" height="500"></div>
 <section class="pitch">
-  <h1>Tactical 5v5 for your phone.</h1>
-  <p>Two clubs, five a side, first to six rounds. Bank your shots, climb the ranks, squad up.</p>
+  <h1>Arm the core. Hold the line.</h1>
+  <p>Two clubs, five a side, first to six rounds. Climb the ranks, squad up.</p>
   <div class="badges">{BADGE}</div>
   <p class="soon">Launching soon on Google Play.</p>
 </section>
@@ -51,7 +57,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 trick-shot shooter for 
   <h2>How it plays</h2>
   <div class="points">
     {point("Ranked", "Every online match is ranked. Climb eight tiers with your friends.")}
-    {point("Trick shots", "Bank a bullet off the wall and round the corner for the knockout.")}
+    {point("Forwards and Defensemen", "Forwards carry the core into a zone and arm it. Defensemen hold the zones and stop them. Sides swap at halftime.")}
     {point("Every round counts", "Buy your gear each round with what you've earned. Save, or spend.")}
     {point("Three arenas", "A quarry rink with a Zamboni, a fight round the falls, and a city in winter.")}
   </div>
@@ -69,6 +75,20 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 trick-shot shooter for 
   <div class="badges">{BADGE}</div>
 </section>
 </main>
+<script>
+// The trailer: YouTube (its no-cookie player) only once the picture of it is tapped.
+document.querySelectorAll(".trailer").forEach(function (button) {{
+  button.addEventListener("click", function () {{
+    var frame = document.createElement("iframe");
+    frame.className = "trailer";
+    frame.src = "https://www.youtube-nocookie.com/embed/" + button.dataset.video + "?autoplay=1&rel=0&playsinline=1";
+    frame.title = "Nordant trailer";
+    frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    frame.allowFullscreen = true;
+    button.replaceWith(frame);
+  }});
+}});
+</script>
 """)
 
 page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players right now, by tier.", "/leaderboard", f"""<main class="prose" style="max-width:860px">
@@ -101,7 +121,7 @@ page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players right n
 
 page("get.html", "Get the game", "Download Nordant for Android.", "/get", f"""<main class="prose" style="text-align:center">
 <h1>Get Nordant</h1>
-<p class="muted">Tactical 5v5 for your phone.</p>
+<p class="muted">Arm the core. Hold the line.</p>
 <div class="badges" style="margin-top:24px">{BADGE.replace('<a href=', '<a id="play" href=')}</div>
 </main>
 <script>
@@ -213,6 +233,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
   <li><strong>Unity</strong>, the engine the game is built with.</li>
 </ul>
 <p>We'd share information otherwise only if the law required it.</p>
+<p>On this website, the trailer on the home page is played from YouTube, in its privacy-enhanced mode, and only once you tap it; from then on, YouTube's own privacy policy applies to it.</p>
 
 <h2>Children</h2>
 <p>Nordant isn't made for children under 13, and we don't knowingly collect information from them. If you think a child has given us information, contact us and we'll delete it.</p>
