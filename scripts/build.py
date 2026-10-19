@@ -120,7 +120,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p class="muted">Help with the game, from ribby.dev.</p>
 
 <h2>Get in touch</h2>
-<p>Found a bug, missing Nords, or have an idea? Write to <a href="mailto:hello@ribby.dev">hello@ribby.dev</a>. Say which phone you play on, the name you play under, and what happened, and we'll get back to you.</p>
+<p>Found a bug, missing Nords, or have an idea? Write to <a href="mailto:support@playnordant.com">support@playnordant.com</a>. Say which phone you play on, the name you play under, and what happened, and we'll get back to you.</p>
 
 <h2>How do I play?</h2>
 <p>Drag anywhere on the left half of the screen to move. On the right, run your thumb round the ring of the aim wheel to turn your aim (the line from your gun), and tap FIRE in its middle to shoot; hold it to keep firing. Aim sensitivity in Settings sets how far the ring turns your aim. The tutorial (How to play, on the menu) walks you through a round, and the practice range is there to warm up.</p>
@@ -157,7 +157,7 @@ page("delete-account.html", "Delete your account", "How to delete your Nordant a
 <p>Your account is deleted from our server straight away, and the game starts you over as a new player.</p>
 
 <h2>By email</h2>
-<p>Can't open the game? Write to <a href="mailto:hello@ribby.dev?subject=Delete%20my%20Nordant%20account">hello@ribby.dev</a> with the subject "Delete my Nordant account". Tell us the name you play under and, if you signed in with Google, the Google account's email address. We'll confirm it's yours and delete it within 30 days, usually much sooner.</p>
+<p>Can't open the game? Write to <a href="mailto:support@playnordant.com?subject=Delete%20my%20Nordant%20account">support@playnordant.com</a> with the subject "Delete my Nordant account". Tell us the name you play under and, if you signed in with Google, the Google account's email address. We'll confirm it's yours and delete it within 30 days, usually much sooner.</p>
 
 <h2>What's deleted</h2>
 <ul>
@@ -224,7 +224,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
 <p>If this policy changes, the new version will be posted here with a new date.</p>
 
 <h2>Contact</h2>
-<p>ribby.dev LLC &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></p>
+<p>ribby.dev LLC &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></p>
 </main>
 """)
 
@@ -263,7 +263,7 @@ page("terms.html", "Terms of service", "The terms for playing Nordant: your acco
 <p>We may update these terms; the new version will be posted here with a new date, and playing after that means you accept it. These terms are governed by the laws of the United States and of the state where ribby.dev LLC is organized.</p>
 
 <h2>Contact</h2>
-<p>ribby.dev LLC &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></p>
+<p>ribby.dev LLC &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></p>
 </main>
 """)
 

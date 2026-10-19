@@ -49,7 +49,7 @@ FOOT = """<footer class="foot"><div class="foot-in">
   <a href="/privacy">Privacy</a>
   <a href="/terms">Terms</a>
   <a href="/delete-account">Delete your account</a>
-  <span class="made">&copy; 2026 ribby.dev LLC &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></span>
+  <span class="made">&copy; 2026 ribby.dev LLC &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></span>
 </div></footer>
 </body>
 </html>
