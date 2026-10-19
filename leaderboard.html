@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leaderboard · Nordant</title>
+  <meta name="description" content="The best-ranked Nordant players right now, by tier.">
+  <link rel="canonical" href="https://playnordant.com/leaderboard">
+  <meta property="og:title" content="Leaderboard · Nordant">
+  <meta property="og:description" content="The best-ranked Nordant players right now, by tier.">
+  <meta property="og:url" content="https://playnordant.com/leaderboard">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://playnordant.com/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#080a12">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <a class="mark" href="/"><img src="/assets/favicon-32.png" alt="">NORDANT</a>
+  <nav class="nav"><a href="/leaderboard" aria-current="page">Leaderboard</a><a href="/support">Support</a><a class="hide-sm" href="/get">Get the game</a></nav>
+</div></header>
+<main class="prose" style="max-width:860px">
+<h1>Leaderboard</h1>
+<p class="muted">The top 100 ranked players who've finished their five placement matches. Updated every minute.</p>
+<div id="board"><p class="note">Loading&hellip;</p></div>
+<p class="note">Ranks run Slush, Frost, Pine, Granite, Agate, Glacier and Polar, three divisions each, then Aurora at the top.</p>
+</main>
+<script>
+(function () {
+  var box = document.getElementById("board");
+  var roman = ["", " I", " II", " III"];
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]; }); }
+  fetch("https://api-production-51079.up.railway.app/v1/leaderboard").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (data) {
+    var players = data.players || [];
+    if (!players.length) { box.innerHTML = '<div class="box">No one has finished their placement matches yet. Play five ranked matches and you could be first.</div>'; return; }
+    var rows = players.map(function (p) {
+      var cls = "t-" + String(p.tier).toLowerCase().replace(/[^a-z]/g, "");
+      return "<tr><td class=\"place\">" + Number(p.place) + "</td><td class=\"name\">" + esc(p.name) + "</td>" +
+        "<td><span class=\"rank " + cls + "\"><i></i>" + esc(p.tier) + (roman[p.division] || "") + "</span></td>" +
+        "<td class=\"num\">" + Number(p.wins) + "</td><td class=\"num hide-sm\">" + Number(p.games) + "</td></tr>";
+    }).join("");
+    box.innerHTML = '<table class="board"><thead><tr><th>#</th><th>Player</th><th>Rank</th><th class="num">Wins</th><th class="num hide-sm">Matches</th></tr></thead><tbody>' + rows + "</tbody></table>";
+  }).catch(function () {
+    box.innerHTML = '<div class="box">The leaderboard couldn\'t be loaded just now. Try again in a minute.</div>';
+  });
+})();
+</script>
+<footer class="foot"><div class="foot-in">
+  <a href="/leaderboard">Leaderboard</a>
+  <a href="/support">Support</a>
+  <a href="/privacy">Privacy</a>
+  <a href="/terms">Terms</a>
+  <a href="/delete-account">Delete your account</a>
+  <span class="made">&copy; 2026 ribby.dev LLC &middot; <a href="mailto:hello@ribby.dev">hello@ribby.dev</a></span>
+</div></footer>
+</body>
+</html>
