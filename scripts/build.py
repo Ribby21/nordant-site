@@ -18,12 +18,10 @@ def feature(title, text):
     return f'<div class="feature"><h3>{title}</h3><p>{text}</p></div>'
 
 
-# The trailer first: a picture of it, and YouTube only once it's tapped (no YouTube until then,
-# and the page stays light on a phone).
-TRAILER = "qVmr52RGyxM"
-trailer = ('<button class="trailer" type="button" data-video="' + TRAILER + '" aria-label="Play the Nordant trailer">'
-           '<img src="/assets/shots/trailer-poster.jpg" alt="" width="1280" height="720">'
-           '<span class="play" aria-hidden="true"></span><span class="label">Watch the trailer</span></button>')
+# The trailer first, played from this site (the user, 2026-10-19: "embedded directly", not
+# YouTube); nothing of it is fetched until it's played.
+trailer = ('<video class="trailer" controls playsinline preload="none" poster="/assets/shots/trailer-poster.jpg" width="1280" height="720" aria-label="The Nordant trailer">'
+           '<source src="/assets/trailer.mp4" type="video/mp4"></video>')
 shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
     ("01-zone", "Defending a zone on Minnehaha"),
     ("03-falls", "Fighting around the falls on Minnehaha"),
@@ -75,20 +73,6 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
   <div class="badges">{BADGE}</div>
 </section>
 </main>
-<script>
-// The trailer: YouTube (its no-cookie player) only once the picture of it is tapped.
-document.querySelectorAll(".trailer").forEach(function (button) {{
-  button.addEventListener("click", function () {{
-    var frame = document.createElement("iframe");
-    frame.className = "trailer";
-    frame.src = "https://www.youtube-nocookie.com/embed/" + button.dataset.video + "?autoplay=1&rel=0&playsinline=1";
-    frame.title = "Nordant trailer";
-    frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-    frame.allowFullscreen = true;
-    button.replaceWith(frame);
-  }});
-}});
-</script>
 """)
 
 page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players right now, by tier.", "/leaderboard", f"""<main class="prose" style="max-width:860px">
@@ -233,7 +217,6 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
   <li><strong>Unity</strong>, the engine the game is built with.</li>
 </ul>
 <p>We'd share information otherwise only if the law required it.</p>
-<p>On this website, the trailer on the home page is played from YouTube, in its privacy-enhanced mode, and only once you tap it; from then on, YouTube's own privacy policy applies to it.</p>
 
 <h2>Children</h2>
 <p>Nordant isn't made for children under 13, and we don't knowingly collect information from them. If you think a child has given us information, contact us and we'll delete it.</p>
