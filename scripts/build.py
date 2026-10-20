@@ -124,7 +124,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p class="muted">Help with the game, from ribby.dev.</p>
 
 <h2>Get in touch</h2>
-<p>Found a bug, missing Nords, or have an idea? Write to <a href="mailto:support@playnordant.com">support@playnordant.com</a>. Say which phone you play on, the name you play under, and what happened, and we'll get back to you.</p>
+<p>Found a bug, or have an idea? Write to <a href="mailto:support@playnordant.com">support@playnordant.com</a>. Say which phone you play on, the name you play under, and what happened, and we'll get back to you.</p>
 
 <h2>How do I play?</h2>
 <p>Drag anywhere on the left half of the screen to move. On the right, run your thumb round the ring of the aim wheel to turn your aim (the line from your gun), and tap FIRE in its middle to shoot; hold it to keep firing. Aim sensitivity in Settings sets how far the ring turns your aim. The tutorial (How to play, on the menu) walks you through a round, and the practice range is there to warm up.</p>
@@ -132,8 +132,8 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <h2>What are Nords?</h2>
 <p>The game's own currency, spent in the Bait Shop on skins (worn from the Locker) and on the premium season pass. You get them from the season pass's free track by playing, or buy them in packs on the Get Nords screen. Skins remake the look of you and your guns, right down to their animations (and soon, their sounds). All style, no edge: they never change how you play.</p>
 
-<h2>I bought Nords and they haven't shown up</h2>
-<p>They usually arrive within a few seconds. If they haven't, close the game and open it again while you're online. Still missing after a few minutes? Write to us with your Google Play order number (it starts with GPA, and it's in the email Google sent you) and we'll sort it out. For a refund, ask through Google Play; Nords from a refunded purchase are taken back.</p>
+<h2>Buying Nords</h2>
+<p>Nords you buy land in your account within seconds. If a purchase ever hasn't arrived (a payment Google Play is still processing, or a phone that went offline mid-purchase), open the game again while you're online and it catches up. Anything else, write to us with your Google Play order number (it starts with GPA, and it's in the email Google sent you) and we'll sort it out. For a refund, ask through Google Play; Nords from a refunded purchase are taken back.</p>
 
 <h2>How does the season pass work?</h2>
 <p>Each season lasts about three months and has 50 tiers. Matches earn XP (more for a win), and so do the three daily and three weekly challenges. Free-track rewards are yours as you reach each tier. Get the premium pass with Nords to unlock the premium track too, including every premium reward up to the tier you've already reached.</p>
