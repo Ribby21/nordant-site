@@ -41,7 +41,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 <div class="hero"><img src="/assets/hero.jpg" alt="Nordant: a match on a snowy rooftop" width="1024" height="500"></div>
 <section class="pitch">
   <h1>Arm the core. Hold the line.</h1>
-  <p>Two clubs, five a side, first to six rounds. Climb the ranks, squad up.</p>
+  <p>Five a side. One life a round. Every online match ranked. Squad up and climb.</p>
   <div class="badges">{BADGE}</div>
   <p class="soon">Launching soon on Google Play.</p>
 </section>
@@ -54,17 +54,17 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 <section class="section">
   <h2>How it plays</h2>
   <div class="points">
-    {point("Ranked", "Every online match is ranked. Climb eight tiers with your friends.")}
-    {point("Forwards and Defensemen", "Forwards carry the core into a zone and arm it. Defensemen hold the zones and stop them. Sides swap at halftime.")}
-    {point("Every round counts", "Buy your gear each round with what you've earned. Save, or spend.")}
-    {point("Three arenas", "A quarry rink with a Zamboni, a fight round the falls, and a city in winter.")}
+    {point("Ranked from match one", "Every online match counts. Climb eight tiers, Slush to Aurora, with your squad beside you.")}
+    {point("Arm it. Retake it.", "Forwards carry the core into a zone and arm it. Defensemen hold, retake, and disarm it before it blows. Sides swap at halftime.")}
+    {point("Your money, your call", "Win rounds, earn cash, buy your loadout: rifles, snipers, armor, smokes and flashes. Save when you're broke. Go big when you're not.")}
+    {point("Arenas that fight back", "A quarry rink with a Zamboni that clears the ice (and you), a firefight round the falls, a city in winter. Every map has moving parts.")}
   </div>
 </section>
 
 <section class="section">
   <h2>Climb the ranks</h2>
   <div class="tiers">{tiers}</div>
-  <p class="muted">A new season every three months, with a free track, a premium pass, and daily and weekly challenges. See who's on top on <a href="/leaderboard">the leaderboard</a>.</p>
+  <p class="muted">A new season every three months: a free track, a premium pass, and daily and weekly challenges. Your K/D, damage a round and accuracy, tracked for every match. See who's on top on <a href="/leaderboard">the leaderboard</a>.</p>
 </section>
 </div>
 
@@ -130,7 +130,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Drag anywhere on the left half of the screen to move. On the right, run your thumb round the ring of the aim wheel to turn your aim (the line from your gun), and tap FIRE in its middle to shoot; hold it to keep firing. Aim sensitivity in Settings sets how far the ring turns your aim. The tutorial (How to play, on the menu) walks you through a round, and the practice range is there to warm up.</p>
 
 <h2>What are Nords?</h2>
-<p>The game's own currency, spent in the Bait Shop on skins (worn from the Locker) and on the premium season pass. You get them from the season pass's free track by playing, or buy them in packs on the Get Nords screen. Skins change the look of you and your guns, and some change your guns' animations and sounds too. They never change how you play.</p>
+<p>The game's own currency, spent in the Bait Shop on skins (worn from the Locker) and on the premium season pass. You get them from the season pass's free track by playing, or buy them in packs on the Get Nords screen. Skins remake the look of you and your guns, right down to their animations (and soon, their sounds). All style, no edge: they never change how you play.</p>
 
 <h2>I bought Nords and they haven't shown up</h2>
 <p>They usually arrive within a few seconds. If they haven't, close the game and open it again while you're online. Still missing after a few minutes? Write to us with your Google Play order number (it starts with GPA, and it's in the email Google sent you) and we'll sort it out. For a refund, ask through Google Play; Nords from a refunded purchase are taken back.</p>
