@@ -130,7 +130,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Drag anywhere on the left half of the screen to move. On the right, run your thumb round the ring of the aim wheel to turn your aim (the line from your gun), and tap FIRE in its middle to shoot; hold it to keep firing. Aim sensitivity in Settings sets how far the ring turns your aim. The tutorial (How to play, on the menu) walks you through a round, and the practice range is there to warm up.</p>
 
 <h2>What are Nords?</h2>
-<p>The game's own currency, spent in the Bait Shop on skins (worn from the Locker) and on the premium season pass. You get them from the season pass's free track by playing, or buy them in packs on the Get Nords screen. Skins only change how you look.</p>
+<p>The game's own currency, spent in the Bait Shop on skins (worn from the Locker) and on the premium season pass. You get them from the season pass's free track by playing, or buy them in packs on the Get Nords screen. Skins change the look of you and your guns, and some change your guns' animations and sounds too. They never change how you play.</p>
 
 <h2>I bought Nords and they haven't shown up</h2>
 <p>They usually arrive within a few seconds. If they haven't, close the game and open it again while you're online. Still missing after a few minutes? Write to us with your Google Play order number (it starts with GPA, and it's in the email Google sent you) and we'll sort it out. For a refund, ask through Google Play; Nords from a refunded purchase are taken back.</p>
