@@ -43,7 +43,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
   <h1>Arm the core. Hold the line.</h1>
   <p>Five a side. One life a round. Every online match ranked. Squad up and climb.</p>
   <div class="badges">{BADGE}</div>
-  <p class="soon">Launching soon on Google Play.</p>
+  <p class="soon">Coming to the App Store and Google Play.</p>
 </section>
 
 <div class="wrap">
@@ -103,10 +103,11 @@ page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players right n
 </script>
 """, current="/leaderboard")
 
-page("get.html", "Get the game", "Download Nordant for Android.", "/get", f"""<main class="prose" style="text-align:center">
+page("get.html", "Get the game", "Get Nordant on Android and iPhone.", "/get", f"""<main class="prose" style="text-align:center">
 <h1>Get Nordant</h1>
 <p class="muted">Arm the core. Hold the line.</p>
 <div class="badges" style="margin-top:24px">{BADGE.replace('<a href=', '<a id="play" href=')}</div>
+<p class="muted">Coming to the App Store too.</p>
 </main>
 <script>
 (function () {{
