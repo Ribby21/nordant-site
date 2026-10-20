@@ -1,3 +1,4 @@
+import hashlib as _hashlib, os as _os
 """Shared head, bar and foot for playnordant.com's pages (kept outside the site repo)."""
 SITE = "https://playnordant.com"
 PLAY = "https://play.google.com/store/apps/details?id=dev.ribby.nordant"
@@ -27,7 +28,7 @@ def head(title, description, path, noindex=False):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v={STYLE_VERSION}">
 </head>
 <body>
 """
@@ -42,6 +43,9 @@ def bar(current=""):
   <nav class="nav">{link("/leaderboard", "Leaderboard")}{link("/support", "Support")}{link("/get", "Get the game", "hide-sm")}</nav>
 </div></header>
 """
+
+# The stylesheet's version (a hash of it): a changed one is fetched afresh, not kept from a visit before (Pages lets browsers keep it ten minutes).
+STYLE_VERSION = _hashlib.sha1(open(_os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "styles.css"), "rb").read()).hexdigest()[:10]
 
 FOOT = """<footer class="foot"><div class="foot-in">
   <nav class="foot-links">
