@@ -44,12 +44,14 @@ def bar(current=""):
 """
 
 FOOT = """<footer class="foot"><div class="foot-in">
-  <a href="/leaderboard">Leaderboard</a>
-  <a href="/support">Support</a>
-  <a href="/privacy">Privacy</a>
-  <a href="/terms">Terms</a>
-  <a href="/delete-account">Delete your account</a>
-  <span class="made">&copy; 2026 ribby.dev LLC &middot; <a href="mailto:support@playnordant.com">support@playnordant.com</a></span>
+  <nav class="foot-links">
+    <a href="/leaderboard">Leaderboard</a>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a class="wide" href="/delete-account">Delete your account</a>
+  </nav>
+  <div class="made"><span>&copy; 2026 ribby.dev LLC</span><a href="mailto:support@playnordant.com">support@playnordant.com</a></div>
 </div></footer>
 </body>
 </html>
