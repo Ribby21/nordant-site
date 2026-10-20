@@ -23,12 +23,12 @@ def feature(title, text):
 trailer = ('<video class="trailer" controls playsinline preload="none" poster="/assets/shots/trailer-poster.jpg" width="1280" height="720" aria-label="The Nordant trailer">'
            '<source src="/assets/trailer.mp4" type="video/mp4"></video>')
 shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
-    ("01-zone", "Defending a zone on Minnehaha"),
-    ("03-falls", "Fighting around the falls on Minnehaha"),
-    ("04-zamboni", "The Zamboni crossing the quarry rink on Sandstone"),
-    ("02-buy", "Buying guns and grenades at the start of a round"),
-    ("05-ranked", "The ranked screen with your tier and party"),
-    ("06-friends", "Friends online and in a match"),
+    ("01-zone", "A 5v5 fight for a zone on Minnehaha"),
+    ("02-rank", "Full time in ranked: your numbers and your rank going up"),
+    ("03-disarm", "Disarming the core with a second on the clock"),
+    ("04-buy", "Buying your loadout at the start of a round"),
+    ("05-ranked", "Queueing ranked with your party"),
+    ("06-stats", "Your stats: K/D, damage a round, accuracy"),
 ])
 tiers = "".join(f'<span class="tier t-{t.lower()}">{t}</span>' for t in TIERS)
 
