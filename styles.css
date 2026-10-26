@@ -98,6 +98,11 @@ a:hover { color: #ffd27a; }
 .t-slush { color: #9aa6b8; } .t-frost { color: #9fd7ff; } .t-pine { color: #5fcf7a; } .t-granite { color: #c7b9ad; }
 .t-agate { color: #ff8a5c; } .t-glacier { color: #6fe3e6; } .t-polar { color: #e8f3ff; } .t-aurora { color: #b78cff; }
 .note { color: var(--muted); font-size: 14px; margin-top: 14px; }
+/* The leaderboard's two views, this season and all time: one quiet switch above the table. */
+.views { display: inline-flex; gap: 4px; padding: 4px; margin: 10px 0 2px; background: var(--steel); border: 1px solid var(--line); border-radius: 999px; }
+.views a { padding: 10px 18px; border-radius: 999px; color: var(--muted); text-decoration: none; font: 600 14px/1 var(--body); letter-spacing: 0.06em; text-transform: uppercase; }
+.views a:hover { color: var(--text); }
+.views a[aria-current="page"] { background: var(--steel-2); color: var(--amber); }
 @media (max-width: 560px) { .board .hide-sm { display: none; } .board td, .board th { padding-left: 6px; padding-right: 6px; } }
 
 @media (max-width: 640px) { .nav { gap: 14px; } .nav .hide-sm { display: none; } }

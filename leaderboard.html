@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Leaderboard · Nordant</title>
-  <meta name="description" content="The best-ranked Nordant players right now, by tier.">
+  <meta name="description" content="The best-ranked Nordant players this season and of all time, by tier.">
   <link rel="canonical" href="https://playnordant.com/leaderboard">
   <meta property="og:title" content="Leaderboard · Nordant">
-  <meta property="og:description" content="The best-ranked Nordant players right now, by tier.">
+  <meta property="og:description" content="The best-ranked Nordant players this season and of all time, by tier.">
   <meta property="og:url" content="https://playnordant.com/leaderboard">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://playnordant.com/assets/og-image.jpg">
@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=e28220c372">
+  <link rel="stylesheet" href="/styles.css?v=9c3bd06457">
 </head>
 <body>
 <header class="bar"><div class="bar-in">
@@ -29,28 +29,58 @@
 </div></header>
 <main class="prose" style="max-width:860px">
 <h1>Leaderboard</h1>
-<p class="muted">The top 100 ranked players who've finished their five placement matches. Updated every minute.</p>
+<nav class="views" aria-label="Leaderboard">
+  <a href="/leaderboard" data-view="season" aria-current="page">Season</a>
+  <a href="/leaderboard?view=alltime" data-view="alltime">All time</a>
+</nav>
+<p class="muted" id="about">This season's top 100 ranked players. Updated every minute.</p>
 <div id="board"><p class="note">Loading&hellip;</p></div>
-<p class="note">Ranks run Slush, Frost, Pine, Granite, Agate, Glacier and Polar, three divisions each, then Aurora at the top.</p>
+<p class="note">Ranks run Slush, Frost, Pine, Granite, Agate, Glacier and Polar, three divisions each, then Aurora at the top. Each new season, every rank moves halfway back toward where everyone starts, and three placement matches put you back on the board.</p>
 </main>
 <script>
 (function () {
-  var box = document.getElementById("board");
+  var box = document.getElementById("board"), about = document.getElementById("about");
+  var links = document.querySelectorAll(".views a");
   var roman = ["", " I", " II", " III"];
+  var asked = 0;
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]; }); }
-  fetch("https://api-production-51079.up.railway.app/v1/leaderboard").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (data) {
-    var players = data.players || [];
-    if (!players.length) { box.innerHTML = '<div class="box">No one has finished their placement matches yet. Play five ranked matches and you could be first.</div>'; return; }
-    var rows = players.map(function (p) {
-      var cls = "t-" + String(p.tier).toLowerCase().replace(/[^a-z]/g, "");
-      return "<tr><td class=\"place\">" + Number(p.place) + "</td><td class=\"name\">" + esc(p.name) + "</td>" +
-        "<td><span class=\"rank " + cls + "\"><i></i>" + esc(p.tier) + (roman[p.division] || "") + "</span></td>" +
-        "<td class=\"num\">" + Number(p.wins) + "</td><td class=\"num hide-sm\">" + Number(p.games) + "</td></tr>";
-    }).join("");
-    box.innerHTML = '<table class="board"><thead><tr><th>#</th><th>Player</th><th>Rank</th><th class="num">Wins</th><th class="num hide-sm">Matches</th></tr></thead><tbody>' + rows + "</tbody></table>";
-  }).catch(function () {
-    box.innerHTML = '<div class="box">The leaderboard couldn\'t be loaded just now. Try again in a minute.</div>';
+  // Season: this season's ratings and record. All time: everyone's best rank ever, and their whole record.
+  function show(view) {
+    var mine = ++asked;
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].getAttribute("data-view") === view) links[i].setAttribute("aria-current", "page");
+      else links[i].removeAttribute("aria-current");
+    }
+    about.textContent = view === "alltime" ? "The top 100 by the best rank they've ever reached. Updated every minute." : "This season's top 100 ranked players. Updated every minute.";
+    box.innerHTML = '<p class="note">Loading&hellip;</p>';
+    fetch("https://api-production-51079.up.railway.app/v1/leaderboard?view=" + view).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (data) {
+      if (mine !== asked) return;
+      if (view === "season" && data.season && data.season.name) about.textContent = data.season.name + "'s top 100 ranked players. Updated every minute.";
+      var players = data.players || [];
+      if (!players.length) {
+        box.innerHTML = '<div class="box">' + (view === "alltime" ? "No one has finished their placement matches yet." : "No one has finished their placement matches this season yet.") + " Play yours and you could be first.</div>";
+        return;
+      }
+      var rows = players.map(function (p) {
+        var cls = "t-" + String(p.tier).toLowerCase().replace(/[^a-z]/g, "");
+        return "<tr><td class=\"place\">" + Number(p.place) + "</td><td class=\"name\">" + esc(p.name) + "</td>" +
+          "<td><span class=\"rank " + cls + "\"><i></i>" + esc(p.tier) + (roman[p.division] || "") + "</span></td>" +
+          "<td class=\"num\">" + Number(p.wins) + "</td><td class=\"num hide-sm\">" + Number(p.games) + "</td></tr>";
+      }).join("");
+      box.innerHTML = '<table class="board"><thead><tr><th>#</th><th>Player</th><th>' + (view === "alltime" ? "Best rank" : "Rank") + '</th><th class="num">Wins</th><th class="num hide-sm">Matches</th></tr></thead><tbody>' + rows + "</tbody></table>";
+    }).catch(function () {
+      if (mine !== asked) return;
+      box.innerHTML = '<div class="box">The leaderboard couldn\'t be loaded just now. Try again in a minute.</div>';
+    });
+  }
+  // (The tabs are links, so a view can be shared; switching between them here doesn't reload the page.)
+  for (var i = 0; i < links.length; i++) links[i].addEventListener("click", function (e) {
+    e.preventDefault();
+    var view = this.getAttribute("data-view");
+    history.replaceState(null, "", this.getAttribute("href"));
+    show(view);
   });
+  show(/[?&]view=alltime(&|$)/.test(location.search) ? "alltime" : "season");
 })();
 </script>
 <footer class="foot"><div class="foot-in">

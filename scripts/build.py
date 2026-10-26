@@ -75,30 +75,60 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 </main>
 """)
 
-page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players right now, by tier.", "/leaderboard", f"""<main class="prose" style="max-width:860px">
+page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players this season and of all time, by tier.", "/leaderboard", f"""<main class="prose" style="max-width:860px">
 <h1>Leaderboard</h1>
-<p class="muted">The top 100 ranked players who've finished their five placement matches. Updated every minute.</p>
+<nav class="views" aria-label="Leaderboard">
+  <a href="/leaderboard" data-view="season" aria-current="page">Season</a>
+  <a href="/leaderboard?view=alltime" data-view="alltime">All time</a>
+</nav>
+<p class="muted" id="about">This season's top 100 ranked players. Updated every minute.</p>
 <div id="board"><p class="note">Loading&hellip;</p></div>
-<p class="note">Ranks run Slush, Frost, Pine, Granite, Agate, Glacier and Polar, three divisions each, then Aurora at the top.</p>
+<p class="note">Ranks run Slush, Frost, Pine, Granite, Agate, Glacier and Polar, three divisions each, then Aurora at the top. Each new season, every rank moves halfway back toward where everyone starts, and three placement matches put you back on the board.</p>
 </main>
 <script>
 (function () {{
-  var box = document.getElementById("board");
+  var box = document.getElementById("board"), about = document.getElementById("about");
+  var links = document.querySelectorAll(".views a");
   var roman = ["", " I", " II", " III"];
+  var asked = 0;
   function esc(s) {{ return String(s).replace(/[&<>"']/g, function (c) {{ return {{"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}}[c]; }}); }}
-  fetch("{API}/v1/leaderboard").then(function (r) {{ if (!r.ok) throw new Error(r.status); return r.json(); }}).then(function (data) {{
-    var players = data.players || [];
-    if (!players.length) {{ box.innerHTML = '<div class="box">No one has finished their placement matches yet. Play five ranked matches and you could be first.</div>'; return; }}
-    var rows = players.map(function (p) {{
-      var cls = "t-" + String(p.tier).toLowerCase().replace(/[^a-z]/g, "");
-      return "<tr><td class=\\"place\\">" + Number(p.place) + "</td><td class=\\"name\\">" + esc(p.name) + "</td>" +
-        "<td><span class=\\"rank " + cls + "\\"><i></i>" + esc(p.tier) + (roman[p.division] || "") + "</span></td>" +
-        "<td class=\\"num\\">" + Number(p.wins) + "</td><td class=\\"num hide-sm\\">" + Number(p.games) + "</td></tr>";
-    }}).join("");
-    box.innerHTML = '<table class="board"><thead><tr><th>#</th><th>Player</th><th>Rank</th><th class="num">Wins</th><th class="num hide-sm">Matches</th></tr></thead><tbody>' + rows + "</tbody></table>";
-  }}).catch(function () {{
-    box.innerHTML = '<div class="box">The leaderboard couldn\\'t be loaded just now. Try again in a minute.</div>';
+  // Season: this season's ratings and record. All time: everyone's best rank ever, and their whole record.
+  function show(view) {{
+    var mine = ++asked;
+    for (var i = 0; i < links.length; i++) {{
+      if (links[i].getAttribute("data-view") === view) links[i].setAttribute("aria-current", "page");
+      else links[i].removeAttribute("aria-current");
+    }}
+    about.textContent = view === "alltime" ? "The top 100 by the best rank they've ever reached. Updated every minute." : "This season's top 100 ranked players. Updated every minute.";
+    box.innerHTML = '<p class="note">Loading&hellip;</p>';
+    fetch("{API}/v1/leaderboard?view=" + view).then(function (r) {{ if (!r.ok) throw new Error(r.status); return r.json(); }}).then(function (data) {{
+      if (mine !== asked) return;
+      if (view === "season" && data.season && data.season.name) about.textContent = data.season.name + "'s top 100 ranked players. Updated every minute.";
+      var players = data.players || [];
+      if (!players.length) {{
+        box.innerHTML = '<div class="box">' + (view === "alltime" ? "No one has finished their placement matches yet." : "No one has finished their placement matches this season yet.") + " Play yours and you could be first.</div>";
+        return;
+      }}
+      var rows = players.map(function (p) {{
+        var cls = "t-" + String(p.tier).toLowerCase().replace(/[^a-z]/g, "");
+        return "<tr><td class=\\"place\\">" + Number(p.place) + "</td><td class=\\"name\\">" + esc(p.name) + "</td>" +
+          "<td><span class=\\"rank " + cls + "\\"><i></i>" + esc(p.tier) + (roman[p.division] || "") + "</span></td>" +
+          "<td class=\\"num\\">" + Number(p.wins) + "</td><td class=\\"num hide-sm\\">" + Number(p.games) + "</td></tr>";
+      }}).join("");
+      box.innerHTML = '<table class="board"><thead><tr><th>#</th><th>Player</th><th>' + (view === "alltime" ? "Best rank" : "Rank") + '</th><th class="num">Wins</th><th class="num hide-sm">Matches</th></tr></thead><tbody>' + rows + "</tbody></table>";
+    }}).catch(function () {{
+      if (mine !== asked) return;
+      box.innerHTML = '<div class="box">The leaderboard couldn\\'t be loaded just now. Try again in a minute.</div>';
+    }});
+  }}
+  // (The tabs are links, so a view can be shared; switching between them here doesn't reload the page.)
+  for (var i = 0; i < links.length; i++) links[i].addEventListener("click", function (e) {{
+    e.preventDefault();
+    var view = this.getAttribute("data-view");
+    history.replaceState(null, "", this.getAttribute("href"));
+    show(view);
   }});
+  show(/[?&]view=alltime(&|$)/.test(location.search) ? "alltime" : "season");
 }})();
 </script>
 """, current="/leaderboard")
@@ -140,7 +170,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Each season lasts about three months and has 50 tiers. Matches earn XP (more for a win), and so do the three daily and three weekly challenges. Free-track rewards are yours as you reach each tier. Get the premium pass with Nords to unlock the premium track too, including every premium reward up to the tier you've already reached.</p>
 
 <h2>How does ranked play work?</h2>
-<p>Every online match is ranked. Your first five matches place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. The best players are on <a href="/leaderboard">the leaderboard</a>.</p>
+<p>Every online match is ranked. Your first five matches place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again. The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.</p>
 
 <h2>Moving to a new phone</h2>
 <p>Sign in with Google (in Settings) and your account, with your rank, friends, Nords and skins, comes with you: sign in with the same Google account on the new phone.</p>
