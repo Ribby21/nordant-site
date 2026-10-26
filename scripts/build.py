@@ -33,8 +33,9 @@ shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading
     ("08-sandstone", "Disarming the core on Sandstone with a second left"),
 ])
 
-# The skins, each doing its own thing in a loop (show, don't tell: only their names under them).
-# Nothing is fetched until a loop comes into view; each plays only while it's on screen.
+# The skins, each a still until it's tapped, then doing its own thing in a loop (the user,
+# 2026-10-26: "Only have them animated when you click on one of them"); one at a time, a tap again
+# stops it. Show, don't tell: only their names under them. Nothing is fetched until it's played.
 SKINS = [
     ("polar-tech-north-star", "Polar Tech", "North Star"),
     ("polar-tech-superior", "Polar Tech", "Superior"),
@@ -46,8 +47,10 @@ SKINS = [
     ("lumberjack-taconite", "Lumberjack", "Taconite"),
 ]
 skins = "".join(
-    f'<figure class="skin l-{n.split("-")[0]}"><video muted loop playsinline preload="none" poster="/assets/skins/{n}.jpg" width="960" height="540" aria-label="{line} {gun}">'
-    f'<source src="/assets/skins/{n}.mp4" type="video/mp4"></video><figcaption><b>{line}</b><span>{gun}</span></figcaption></figure>'
+    f'<figure class="skin l-{n.split("-")[0]}"><button type="button" class="play" aria-label="Play the {line} {gun}" aria-pressed="false">'
+    f'<video muted loop playsinline preload="none" poster="/assets/skins/{n}.jpg" width="960" height="540">'
+    f'<source src="/assets/skins/{n}.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button>'
+    f'<figcaption><b>{line}</b><span>{gun}</span></figcaption></figure>'
     for n, line, gun in SKINS)
 tiers = "".join(f'<span class="tier t-{t.lower()}">{t}</span>' for t in TIERS)
 
@@ -107,18 +110,26 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 </main>
 <script>
 (function () {{
-  // Each skin's loop plays only while it's on screen (and isn't fetched before it's near).
-  var loops = document.querySelectorAll(".skin video");
-  if (!("IntersectionObserver" in window)) {{ loops.forEach(function (v) {{ v.preload = "auto"; v.play().catch(function () {{}}); }}); return; }}
-  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var seen = new IntersectionObserver(function (entries) {{
-    entries.forEach(function (e) {{
-      var v = e.target;
-      if (e.isIntersecting && !still) {{ v.preload = "auto"; v.play().catch(function () {{}}); }}
-      else v.pause();
+  // A skin plays when it's tapped, and stops when it's tapped again or another one is.
+  var buttons = document.querySelectorAll(".skin .play");
+  function stop(b) {{
+    var v = b.querySelector("video");
+    v.pause();
+    b.classList.remove("playing");
+    b.setAttribute("aria-pressed", "false");
+  }}
+  buttons.forEach(function (b) {{
+    b.addEventListener("click", function () {{
+      var v = b.querySelector("video");
+      if (b.classList.contains("playing")) {{ stop(b); return; }}
+      buttons.forEach(function (other) {{ if (other !== b && other.classList.contains("playing")) stop(other); }});
+      v.preload = "auto";
+      v.currentTime = 0;
+      b.classList.add("playing");
+      b.setAttribute("aria-pressed", "true");
+      v.play().catch(function () {{ stop(b); }});
     }});
-  }}, {{ rootMargin: "120px 0px", threshold: 0.35 }});
-  loops.forEach(function (v) {{ seen.observe(v); }});
+  }});
 }})();
 </script>
 """)
