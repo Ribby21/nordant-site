@@ -27,7 +27,7 @@ shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading
     ("02-skins", "Polar Tech, Northern Lights and Lumberjack"),
     ("03-locker", "Skins in the Locker: Polar Tech Superior, Northern Lights Fillet Knife, Lumberjack Timberwolf, Northern Lights Mosquito"),
     ("04-bait-shop", "The Bait Shop: the Polar Tech bundle"),
-    ("05-season", "Season 1's pass: the Gold Axe, Blackout and Crimson"),
+    ("05-season", "Season 1's pass, First Ice: the Fillet Knife, Timberwolf, Muskie and Skipstone"),
     ("06-ranked", "The ranks, Slush to Aurora"),
     ("07-full-time", "Ranked full time: a promotion to Glacier II"),
     ("08-sandstone", "Disarming the core on Sandstone with a second left"),
@@ -91,8 +91,8 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 
 <section class="section">
   <p class="kicker">Season pass</p>
-  <h2>Season 1</h2>
-  <img class="art" src="/assets/art/season-1.jpg" alt="Season 1 pass: the Gold Axe at tier 45, Blackout at 40, Crimson at 25" loading="lazy" width="1920" height="1080">
+  <h2>Season 1: First Ice</h2>
+  <img class="art" src="/assets/art/season-1.jpg" alt="Season 1 pass, First Ice: the Fillet Knife at tier 50, the Timberwolf at 35, the Muskie at 30, the Skipstone at 15" loading="lazy" width="1920" height="1080">
 </section>
 
 <section class="section">
