@@ -256,7 +256,7 @@ page("delete-account.html", "Delete your account", "How to delete your Nordant a
 
 page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you can do about it.", "/privacy", """<main class="prose">
 <h1>Privacy policy</h1>
-<p class="muted">Effective October 19, 2026</p>
+<p class="muted">Effective October 26, 2026</p>
 
 <p>Nordant is a game made by ribby.dev LLC ("we"). This page says what the game collects, why, and what you can do about it. The short version: no ads, no tracking, no selling your data, and no real name or location asked for. An email address is kept only if you choose to sign in with Google.</p>
 
@@ -268,7 +268,8 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
   <li><strong>Friends and parties.</strong> The players you're friends with, friend requests and party invitations you send or receive, and whether you're online or in a match, which your friends can see.</li>
   <li><strong>Ranked play.</strong> Your rating and rank, and the results of the ranked matches you play (who was in them and how they went), to match you with players of a similar level. Your name, rank and record appear on the public leaderboard once you've played your placement matches; your rating number doesn't.</li>
   <li><strong>The season pass.</strong> Your XP and tier, whether you have the premium pass, the rewards you've been given, and your progress on challenges. To count that progress, the game reports what you did in each match: how many knockouts (and with which guns), trick shots, rounds as the star, clutches and rounds won.</li>
-  <li><strong>Your game items</strong>: your Nords balance (the game's own currency, earned by playing or bought), the skins you own and wear, and a record of the matches you start and finish.</li>
+  <li><strong>Your stats and match history.</strong> For each match you finish, your numbers in it (knockouts, times knocked out, damage dealt and taken, shots fired and hit, trick shots, rounds won and played) are added to your stats, kept for each season and all time, online and against bots, so the game can show them to you. And your last 100 matches of each kind, each with its full-time scoreboard: the score, and the names and numbers of everyone in it. So the other players in a match you played see your name and numbers in their own history, as you see theirs.</li>
+  <li><strong>Your game items</strong>: your Nords balance (the game's own currency, bought, or given by the season pass), the skins you own and wear, and a record of the matches you start and finish.</li>
   <li><strong>Purchases.</strong> If you buy Nords, a record of each purchase: what you bought, when, the store's order number, and which game account it was for. See Purchases, below.</li>
   <li><strong>Sign-in tokens</strong>, so the game remembers your account. They're kept on your device, and our server keeps only a scrambled (hashed) copy.</li>
   <li><strong>Connection details.</strong> Like any online service, our server and the multiplayer service see your device's IP address when the game connects. Our server's logs record requests, including IP addresses, for security (such as stopping abuse) and fixing problems. They're kept for a limited time and not used for anything else.</li>
