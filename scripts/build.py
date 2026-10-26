@@ -23,13 +23,32 @@ def feature(title, text):
 trailer = ('<video class="trailer" controls playsinline preload="none" poster="/assets/shots/trailer-poster.jpg" width="1280" height="720" aria-label="The Nordant trailer">'
            '<source src="/assets/trailer.mp4" type="video/mp4"></video>')
 shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
-    ("01-zone", "A 5v5 fight for a zone on Minnehaha"),
-    ("02-rank", "Full time in ranked: your numbers and your rank going up"),
-    ("03-disarm", "Disarming the core with a second on the clock"),
-    ("04-buy", "Buying your loadout at the start of a round"),
-    ("05-ranked", "Queueing ranked with your party"),
-    ("06-stats", "Your stats: K/D, damage a round, accuracy"),
+    ("01-minnehaha", "A fight at the falls on Minnehaha"),
+    ("02-skins", "Polar Tech, Northern Lights and Lumberjack"),
+    ("03-locker", "Skins in the Locker: Polar Tech Superior, Northern Lights Fillet Knife, Lumberjack Timberwolf, Northern Lights Mosquito"),
+    ("04-bait-shop", "The Bait Shop: the Polar Tech bundle"),
+    ("05-season", "Season 1's pass: the Gold Axe, Blackout and Crimson"),
+    ("06-ranked", "The ranks, Slush to Aurora"),
+    ("07-full-time", "Ranked full time: a promotion to Glacier II"),
+    ("08-sandstone", "Disarming the core on Sandstone with a second left"),
 ])
+
+# The skins, each doing its own thing in a loop (show, don't tell: only their names under them).
+# Nothing is fetched until a loop comes into view; each plays only while it's on screen.
+SKINS = [
+    ("polar-tech-north-star", "Polar Tech", "North Star"),
+    ("polar-tech-superior", "Polar Tech", "Superior"),
+    ("polar-tech-loon", "Polar Tech", "Loon"),
+    ("northern-lights-knife", "Northern Lights", "Fillet Knife"),
+    ("northern-lights-mosquito", "Northern Lights", "Mosquito"),
+    ("northern-lights-blizzard", "Northern Lights", "Blizzard"),
+    ("lumberjack-timberwolf", "Lumberjack", "Timberwolf"),
+    ("lumberjack-taconite", "Lumberjack", "Taconite"),
+]
+skins = "".join(
+    f'<figure class="skin l-{n.split("-")[0]}"><video muted loop playsinline preload="none" poster="/assets/skins/{n}.jpg" width="960" height="540" aria-label="{line} {gun}">'
+    f'<source src="/assets/skins/{n}.mp4" type="video/mp4"></video><figcaption><b>{line}</b><span>{gun}</span></figcaption></figure>'
+    for n, line, gun in SKINS)
 tiers = "".join(f'<span class="tier t-{t.lower()}">{t}</span>' for t in TIERS)
 
 
@@ -61,10 +80,23 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
   </div>
 </section>
 
+<section class="section" id="skins">
+  <p class="kicker">Skins</p>
+  <h2>Polar Tech. Northern Lights. Lumberjack.</h2>
+  <div class="skins">{skins}</div>
+</section>
+
 <section class="section">
-  <h2>Climb the ranks</h2>
-  <div class="tiers">{tiers}</div>
-  <p class="muted">A new season every three months: a free track, a premium pass, and daily and weekly challenges. Your K/D, damage a round and accuracy, tracked for every match. See who's on top on <a href="/leaderboard">the leaderboard</a>.</p>
+  <p class="kicker">Season pass</p>
+  <h2>Season 1</h2>
+  <img class="art" src="/assets/art/season-1.jpg" alt="Season 1 pass: the Gold Axe at tier 45, Blackout at 40, Crimson at 25" loading="lazy" width="1920" height="1080">
+</section>
+
+<section class="section">
+  <p class="kicker">Ranked</p>
+  <h2>Slush to Aurora</h2>
+  <img class="art" src="/assets/art/ranked.jpg" alt="The eight ranks, Slush to Aurora" loading="lazy" width="1920" height="1080">
+  <p class="muted">See who's on top this season, and of all time, on <a href="/leaderboard">the leaderboard</a>.</p>
 </section>
 </div>
 
@@ -73,6 +105,22 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
   <div class="badges">{BADGE}</div>
 </section>
 </main>
+<script>
+(function () {{
+  // Each skin's loop plays only while it's on screen (and isn't fetched before it's near).
+  var loops = document.querySelectorAll(".skin video");
+  if (!("IntersectionObserver" in window)) {{ loops.forEach(function (v) {{ v.preload = "auto"; v.play().catch(function () {{}}); }}); return; }}
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var seen = new IntersectionObserver(function (entries) {{
+    entries.forEach(function (e) {{
+      var v = e.target;
+      if (e.isIntersecting && !still) {{ v.preload = "auto"; v.play().catch(function () {{}}); }}
+      else v.pause();
+    }});
+  }}, {{ rootMargin: "120px 0px", threshold: 0.35 }});
+  loops.forEach(function (v) {{ seen.observe(v); }});
+}})();
+</script>
 """)
 
 page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players this season and of all time, by tier.", "/leaderboard", f"""<main class="prose" style="max-width:860px">

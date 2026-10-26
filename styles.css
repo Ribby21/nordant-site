@@ -121,3 +121,17 @@ a:hover { color: #ffd27a; }
   .made { flex-direction: column; gap: 6px; font-size: 13px; }
   .made a::before { content: none; }
 }
+
+/* The skins: each in a loop, in its line's light, named under it; four across, two on a phone. */
+.skins { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.skin { margin: 0; background: #07090f; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.skin video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #07090f; }
+.skin figcaption { display: flex; flex-direction: column; gap: 2px; padding: 10px 14px 12px; border-top: 1px solid var(--line); }
+.skin figcaption b { font: 700 12px/1.2 var(--body); letter-spacing: 0.16em; text-transform: uppercase; }
+.skin figcaption span { font: 700 19px/1.2 var(--display); letter-spacing: 0.04em; text-transform: uppercase; }
+.l-polar figcaption b { color: #40d6ff; }
+.l-northern figcaption b { color: #40e8aa; }
+.l-lumberjack figcaption b { color: #ff6a52; }
+.art { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
+@media (max-width: 900px) { .skins { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .skins { gap: 10px; } .skin figcaption { padding: 8px 10px 10px; } .skin figcaption span { font-size: 17px; } }
