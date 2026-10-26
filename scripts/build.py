@@ -1,7 +1,7 @@
 """Writes playnordant.com's pages into the nordant-site repo: python build.py <site dir>."""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from parts import head, bar, FOOT, PLAY, SITE
+from parts import head, bar, FOOT, PLAY, SITE, LEADERBOARD
 
 OUT = sys.argv[1]
 BADGE = f'<a href="{PLAY}"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a>'
@@ -96,7 +96,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
   <p class="kicker">Ranked</p>
   <h2>Slush to Aurora</h2>
   <img class="art" src="/assets/art/ranked.jpg" alt="The eight ranks, Slush to Aurora" loading="lazy" width="1920" height="1080">
-  <p class="muted">See who's on top this season, and of all time, on <a href="/leaderboard">the leaderboard</a>.</p>
+  {'<p class="muted">See who' + chr(39) + 's on top this season, and of all time, on <a href="/leaderboard">the leaderboard</a>.</p>' if LEADERBOARD else ""}
 </section>
 </div>
 
@@ -123,7 +123,13 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 </script>
 """)
 
-page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players this season and of all time, by tier.", "/leaderboard", f"""<main class="prose" style="max-width:860px">
+# (Hidden: its page only sends people home, and search engines are told to leave it out.)
+if not LEADERBOARD:
+    page("leaderboard.html", "Leaderboard", "Nordant's leaderboard is coming back soon.", "/leaderboard",
+         '<main class="prose"><h1>Leaderboard</h1><p class="muted">Coming back soon. <a href="/">Back to Nordant</a>.</p></main>'
+         '<script>location.replace("/");</script>', noindex=True)
+else:
+  page("leaderboard.html", "Leaderboard", "The best-ranked Nordant players this season and of all time, by tier.", "/leaderboard", f"""<main class="prose" style="max-width:860px">
 <h1>Leaderboard</h1>
 <nav class="views" aria-label="Leaderboard">
   <a href="/leaderboard" data-view="season" aria-current="page">Season</a>
@@ -218,7 +224,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Each season lasts about three months and has 50 tiers. Matches earn XP (more for a win), and so do the three daily and three weekly challenges. Free-track rewards are yours as you reach each tier. Get the premium pass with Nords to unlock the premium track too, including every premium reward up to the tier you've already reached.</p>
 
 <h2>How does ranked play work?</h2>
-<p>Every online match is ranked. Your first five matches place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again. The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.</p>
+<p>Every online match is ranked. Your first five matches place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again.""" + (' The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.' if LEADERBOARD else "") + """</p>
 
 <h2>Moving to a new phone</h2>
 <p>Sign in with Google (in Settings) and your account, with your rank, friends, Nords and skins, comes with you: sign in with the same Google account on the new phone.</p>

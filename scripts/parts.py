@@ -1,6 +1,10 @@
 import hashlib as _hashlib, os as _os
 """Shared head, bar and foot for playnordant.com's pages (kept outside the site repo)."""
 SITE = "https://playnordant.com"
+# The leaderboard, hidden while there's hardly anyone playing (the user, 2026-10-26: "Hide the
+# leaderboard for now while there is no one playing"): no links to it, and its page sends people
+# home. True puts it all back (and add /leaderboard to sitemap.xml again).
+LEADERBOARD = False
 PLAY = "https://play.google.com/store/apps/details?id=dev.ribby.nordant"
 
 def head(title, description, path, noindex=False):
@@ -40,7 +44,7 @@ def bar(current=""):
         return f'<a{c} href="{href}"{mark}>{text}</a>'
     return f"""<header class="bar"><div class="bar-in">
   <a class="mark" href="/"><img src="/assets/favicon-32.png" alt="">NORDANT</a>
-  <nav class="nav">{link("/leaderboard", "Leaderboard")}{link("/support", "Support")}{link("/get", "Get the game", "hide-sm")}</nav>
+  <nav class="nav">{link("/leaderboard", "Leaderboard") if LEADERBOARD else ""}{link("/support", "Support")}{link("/get", "Get the game", "hide-sm")}</nav>
 </div></header>
 """
 
@@ -49,8 +53,7 @@ STYLE_VERSION = _hashlib.sha1(open(_os.path.join(_os.path.dirname(_os.path.dirna
 
 FOOT = """<footer class="foot"><div class="foot-in">
   <nav class="foot-links">
-    <a href="/leaderboard">Leaderboard</a>
-    <a href="/support">Support</a>
+    """ + ('<a href="/leaderboard">Leaderboard</a>\n    ' if LEADERBOARD else "") + """<a href="/support">Support</a>
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
     <a class="wide" href="/delete-account">Delete your account</a>
