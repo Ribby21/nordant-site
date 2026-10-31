@@ -229,7 +229,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>The game's own currency, spent in the Bait Shop on skins (worn from the Locker) and on the premium season pass. You get them from the season pass's free track by playing, or buy them in packs on the Get Nords screen. Skins remake the look of you and your guns, right down to their animations and sounds. All style, no edge: they never change how you play.</p>
 
 <h2>Buying Nords</h2>
-<p>Nords you buy land in your account within seconds. If a purchase ever hasn't arrived (a payment Google Play is still processing, or a phone that went offline mid-purchase), open the game again while you're online and it catches up. Anything else, write to us with your Google Play order number (it starts with GPA, and it's in the email Google sent you) and we'll sort it out. For a refund, ask through Google Play; Nords from a refunded purchase are taken back.</p>
+<p>Nords you buy land in your account within seconds. If a purchase ever hasn't arrived (a payment Google Play is still processing, or a phone that went offline mid-purchase), open the game again while you're online and it catches up. Anything else, write to us with your Google Play order number (it starts with GPA, and it's in the email Google sent you) and we'll sort it out. On iPhone or iPad, Restore Purchases on the Get Nords screen checks again; or write to us with the order ID from Apple's receipt email. For a refund, ask through Google Play or <a href="https://reportaproblem.apple.com">Apple</a>; Nords from a refunded purchase are taken back.</p>
 
 <h2>How does the season pass work?</h2>
 <p>Each season lasts about three months and has 50 tiers. Matches earn XP (more for a win), and so do the three daily and three weekly challenges. Free-track rewards are yours as you reach each tier. Get the premium pass with Nords to unlock the premium track too, including every premium reward up to the tier you've already reached.</p>
@@ -261,28 +261,33 @@ page("delete-account.html", "Delete your account", "How to delete your Nordant a
 
 <h2>What's deleted</h2>
 <ul>
-  <li>Your account and its sign-in sessions, and the Google account link if you signed in with Google.</li>
+  <li>Your account and its sign-in sessions, and its link to Google, Apple or Game Center if you signed in with them.</li>
   <li>Your name and tag, your look, the skins you own and your Nords.</li>
   <li>Your rank, ranked results, season progress and challenges, and the matches recorded for them.</li>
   <li>Your friends, friend requests and parties.</li>
+  <li>The players you've blocked, and reports made about you.</li>
   <li>Our records of your purchases.</li>
 </ul>
-<p>Deleted Nords, skins and season passes can't be brought back, and aren't refunded. Our server's request logs, kept for a limited time for security, aren't part of your account and expire on their own. Google keeps its own record of anything you bought through Google Play, in your Google Play order history. RevenueCat, which checks purchases for us, keeps its record of them under your account's ID only.</p>
+<p>Reports you made about other players stay, so we can still act on them, but without anything that links them to you.</p>
+<p>Deleted Nords, skins and season passes can't be brought back, and aren't refunded. Our server's request logs, kept for a limited time for security, aren't part of your account and expire on their own. Google keeps its own record of anything you bought through Google Play, in your Google Play order history, and Apple of anything bought through the App Store. RevenueCat, which checks purchases for us, keeps its record of them under your account's ID only.</p>
 </main>
 """, current="/delete-account")
 
 page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you can do about it.", "/privacy", """<main class="prose">
 <h1>Privacy policy</h1>
-<p class="muted">Effective October 26, 2026</p>
+<p class="muted">Effective October 31, 2026</p>
 
 <p>Nordant is a game made by ribby.dev LLC ("we"). This page says what the game collects, why, and what you can do about it. The short version: no ads, no tracking, no selling your data, and no real name or location asked for. An email address is kept only if you choose to sign in with Google.</p>
+<p>Nordant is on Android and, soon, iPhone and iPad. Where something applies to only one of them, this page says so.</p>
 
 <h2>What the game collects</h2>
 <ul>
   <li><strong>A player account.</strong> When you first open the game it makes an anonymous account for you: a random ID, and when it was made and last used. It isn't tied to your name, email, phone number or contacts.</li>
   <li><strong>Your display name</strong>, the name other players see in matches and on the leaderboard, if you choose one, and your <strong>tag</strong> (six letters and numbers after it) that friends add you by.</li>
   <li><strong>Google sign-in, if you use it.</strong> Signing in with Google is optional; it lets your account follow you to a new phone. If you do, we keep your Google account's ID and its email address, to link your account to it and show you which account you're signed in with. We don't get your password or anything else from your Google account.</li>
+  <li><strong>Apple sign-in and Game Center, on iPhone and iPad, if you use them.</strong> The game signs you in to Game Center if your device is signed in to it, so your account follows you to a new device; you can also sign in with Apple in Settings. For either, we keep only the ID Apple gives your account for our games, to link it to your game account. We don't keep your Apple email address, your Game Center name or friends, or your password.</li>
   <li><strong>Friends and parties.</strong> The players you're friends with, friend requests and party invitations you send or receive, and whether you're online or in a match, which your friends can see.</li>
+  <li><strong>Reports and blocks.</strong> The players you block, and reports you make about other players (who, why, any note you add, and the name they had), so we can act on them. If someone reports you, we keep that report and the name you had then. A name we take away after a report can't be used again.</li>
   <li><strong>Ranked play.</strong> Your rating and rank, and the results of the ranked matches you play (who was in them and how they went), to match you with players of a similar level. Your name, rank and record appear on the public leaderboard once you've played your placement matches; your rating number doesn't.</li>
   <li><strong>The season pass.</strong> Your XP and tier, whether you have the premium pass, the rewards you've been given, and your progress on challenges. To count that progress, the game reports what you did in each match: how many knockouts (and with which guns), trick shots, rounds as the star, clutches and rounds won.</li>
   <li><strong>Your stats and match history.</strong> For each match you finish, your numbers in it (knockouts, times knocked out, damage dealt and taken, shots fired and hit, trick shots, rounds won and played) are added to your stats, kept for each season and all time, online and against bots, so the game can show them to you. And your last 100 matches of each kind, each with its full-time scoreboard: the score, and the names and numbers of everyone in it. So the other players in a match you played see your name and numbers in their own history, as you see theirs.</li>
@@ -301,7 +306,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
 </ul>
 
 <h2>Purchases</h2>
-<p>Nords are sold in packs through Google Play, which handles the payment: we never see your card or payment details. We use RevenueCat to check each purchase with Google Play and tell our server, which then adds the Nords to your account. RevenueCat and our server keep a record of each purchase (the product, the time, the store's order number and your game account's ID) to credit your Nords, handle refunds and answer questions about a purchase. Nords from a refunded purchase are taken back.</p>
+<p>Nords are sold in packs through Google Play on Android and the App Store on iPhone and iPad, which handle the payment: we never see your card or payment details. We use RevenueCat to check each purchase with the store and tell our server, which then adds the Nords to your account. RevenueCat and our server keep a record of each purchase (the product, the time, the store's order number and your game account's ID) to credit your Nords, handle refunds and answer questions about a purchase. Nords from a refunded purchase are taken back.</p>
 
 <h2>Who else handles it</h2>
 <p>Only the services the game runs on, and only to run it:</p>
@@ -310,6 +315,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
   <li><strong>Photon</strong> (Exit Games) connects players' devices for matches.</li>
   <li><strong>Edgegap</strong> runs the servers ranked matches are played on, and picks one near you from your connection.</li>
   <li><strong>Google</strong>, for Google Play purchases, and if you sign in with Google.</li>
+  <li><strong>Apple</strong>, for App Store purchases, Game Center, and if you sign in with Apple.</li>
   <li><strong>RevenueCat</strong> checks purchases, as above.</li>
   <li><strong>Unity</strong>, the engine the game is built with.</li>
 </ul>
@@ -319,7 +325,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
 <p>Nordant isn't made for children under 13, and we don't knowingly collect information from them. If you think a child has given us information, contact us and we'll delete it.</p>
 
 <h2>Deleting your account</h2>
-<p>You can delete your account and everything kept with it at any time, right in the game: Settings, then Delete account. It's removed from our server straight away. You can also write to us and we'll delete it for you. See <a href="/delete-account">deleting your account</a> for the details, including what Google and RevenueCat keep. Uninstalling the game removes its sign-in from your device, but doesn't delete the account on our server.</p>
+<p>You can delete your account and everything kept with it at any time, right in the game: Settings, then Delete account. It's removed from our server straight away. You can also write to us and we'll delete it for you. Deleting it also ends its link to Apple sign-in, if you used it. See <a href="/delete-account">deleting your account</a> for the details, including what Google, Apple and RevenueCat keep. Uninstalling the game removes its sign-in from your device, but doesn't delete the account on our server.</p>
 
 <h2>Changes</h2>
 <p>If this policy changes, the new version will be posted here with a new date.</p>
@@ -342,7 +348,7 @@ page("terms.html", "Terms of service", "The terms for playing Nordant: your acco
 <ul>
   <li>Nords, skins and season passes are virtual items for use in the game. Buying or earning them gives you a personal, non-transferable license to use them in Nordant; you don't own them, and they have no cash value.</li>
   <li>They can't be sold, traded, transferred to another account or exchanged for real money or anything outside the game.</li>
-  <li>Purchases are made through Google Play, under its terms and refund policy. Except where the law or Google Play's policy says otherwise, purchases are final. Nords from a refunded or charged-back purchase are taken back, and the account's balance may go down accordingly.</li>
+  <li>Purchases are made through Google Play or the App Store, under that store's terms and refund policy. Except where the law or the store's policy says otherwise, purchases are final. Nords from a refunded or charged-back purchase are taken back, and the account's balance may go down accordingly.</li>
   <li>A season pass applies to its own season. Rewards are given as tiers are reached during that season; progress and tiers not reached don't carry over to the next one.</li>
   <li>We may change prices, items and rewards, and retire items, from time to time. We won't take away items you already own except as these terms allow (refunds, cheating, or a closed account).</li>
   <li>If we ever close the game, we'll say so in the game at least 60 days before, and stop selling Nords when we do.</li>
