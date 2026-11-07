@@ -1,12 +1,12 @@
 """Writes playnordant.com's pages into the nordant-site repo: python build.py <site dir>."""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from parts import head, bar, FOOT, PLAY, TESTFLIGHT, SITE, LEADERBOARD
+from parts import head, bar, FOOT, PLAY, APP_STORE, SITE, LEADERBOARD
 
 OUT = sys.argv[1]
 BADGE = f'<a href="{PLAY}"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a>'
-# (Apple has no badge for TestFlight, and the App Store's would say it's there: a plain one of our own.)
-TF_BADGE = f'<a class="tf" href="{TESTFLIGHT}"><span class="tf-small">iPhone &amp; iPad</span><span class="tf-big">TestFlight beta</span></a>'
+# Apple's own badge (from Apple's marketing tools), going to APP_STORE (TestFlight for now).
+APPLE_BADGE = f'<a href="{APP_STORE}"><img class="apple" alt="Download on the App Store" src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"></a>'
 TIERS = ["Slush", "Frost", "Pine", "Granite", "Agate", "Glacier", "Polar", "Aurora"]
 API = "https://api-production-51079.up.railway.app"
 
@@ -66,8 +66,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 <section class="pitch">
   <h1>Arm the core. Hold the line.</h1>
   <p>Five a side. One life a round. Every online match ranked. Squad up and climb.</p>
-  <div class="badges">{BADGE}{TF_BADGE}</div>
-  <p class="soon">Coming to the App Store.</p>
+  <div class="badges">{BADGE}{APPLE_BADGE}</div>
 </section>
 
 <div class="wrap">
@@ -107,7 +106,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 
 <section class="cta">
   <h2>Drop in.</h2>
-  <div class="badges">{BADGE}</div>
+  <div class="badges">{BADGE}{APPLE_BADGE}</div>
 </section>
 </main>
 <script>
@@ -203,8 +202,7 @@ else:
 page("get.html", "Get the game", "Get Nordant on Android and iPhone.", "/get", f"""<main class="prose" style="text-align:center">
 <h1>Get Nordant</h1>
 <p class="muted">Arm the core. Hold the line.</p>
-<div class="badges" style="margin-top:24px">{BADGE.replace('<a href=', '<a id="play" href=')}{TF_BADGE}</div>
-<p class="muted">Coming to the App Store.</p>
+<div class="badges" style="margin-top:24px">{BADGE.replace('<a href=', '<a id="play" href=')}{APPLE_BADGE}</div>
 </main>
 <script>
 (function () {{
@@ -213,9 +211,9 @@ page("get.html", "Get the game", "Get Nordant on Android and iPhone.", "/get", f
   var play = "{PLAY}&referrer=" + encodeURIComponent("utm_source=" + src + "&utm_medium=link");
   document.getElementById("play").href = play;
   if (/android/i.test(navigator.userAgent || "")) location.replace(play);
-  // On an iPhone or iPad, straight to the TestFlight beta. (An iPad says it's a Mac: one with a touch screen isn't.)
+  // On an iPhone or iPad, straight to the App Store (TestFlight for now). (An iPad says it's a Mac: one with a touch screen isn't.)
   else if (/iphone|ipad|ipod/i.test(navigator.userAgent || "") || (/macintosh/i.test(navigator.userAgent || "") && navigator.maxTouchPoints > 1))
-    location.replace("{TESTFLIGHT}");
+    location.replace("{APP_STORE}");
 }})();
 </script>
 """, current="/get")
