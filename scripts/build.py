@@ -5,8 +5,8 @@ from parts import head, bar, FOOT, PLAY, APP_STORE, SITE, LEADERBOARD
 
 OUT = sys.argv[1]
 BADGE = f'<a href="{PLAY}"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a>'
-# Apple's own badge (from Apple's marketing tools), going to APP_STORE (TestFlight for now).
-APPLE_BADGE = f'<a href="{APP_STORE}"><img class="apple" alt="Download on the App Store" src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"></a>'
+# Apple's own badge (from Apple's marketing tools, kept here: the old tools address went dead), going to APP_STORE (TestFlight for now).
+APPLE_BADGE = f'<a href="{APP_STORE}"><img class="apple" alt="Download on the App Store" src="/assets/app-store-badge.svg"></a>'
 TIERS = ["Slush", "Frost", "Pine", "Granite", "Agate", "Glacier", "Polar", "Aurora"]
 API = "https://api-production-51079.up.railway.app"
 
