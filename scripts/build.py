@@ -85,11 +85,6 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
   <p>Rounds, cash and one life each. Climb Slush to Aurora with your squad.</p>
   <div class="badges">{BADGE}{APPLE_BADGE}</div>
 </section>
-<div class="scoreboard" role="img" aria-label="Forwards five, Defensemen five, one life a round">
-  <div class="team fwd"><span>Forwards</span><b>5</b></div>
-  <div class="clock"><b>1</b><span>Life a round</span></div>
-  <div class="team def"><b>5</b><span>Defensemen</span></div>
-</div>
 {BOARDS}
 
 <div class="wrap">

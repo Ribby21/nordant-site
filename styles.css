@@ -170,15 +170,6 @@ a:hover { color: #ffd27a; }
 .pitch { margin-top: 0; padding-top: 6px; }
 .pitch p { margin-bottom: 22px; max-width: 700px; }
 
-/* The scoreboard: one bar, the clubs either end with their five each, the round's clock cell between. */
-.scoreboard { max-width: 640px; margin: 40px auto 0; display: grid; grid-template-columns: 1fr auto 1fr; background: #05070c; border: 1px solid #262d40; }
-.team { display: flex; align-items: center; gap: 14px; padding: 12px 18px; font: 600 14px/1 var(--body); letter-spacing: 0.2em; text-transform: uppercase; }
-.team.fwd { justify-content: flex-end; border-left: 4px solid var(--fwd); }
-.team.def { justify-content: flex-start; border-right: 4px solid var(--def); }
-.team b { font: 700 46px/1 var(--display); color: var(--amber); font-variant-numeric: tabular-nums; }
-.clock { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 18px; border-left: 1px solid #262d40; border-right: 1px solid #262d40; }
-.clock b { font: 700 30px/1 var(--display); color: var(--text); }
-.clock span { margin-top: 4px; color: var(--muted); font: 600 11px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
 
 /* The boards: amber chevrons on black, as round the game's rink. */
 .boards { height: 16px; margin: 64px 0 0; background-color: #05070c; border-top: 1px solid #1d2333; border-bottom: 1px solid #1d2333;
@@ -192,7 +183,7 @@ a:hover { color: #ffd27a; }
 .point:nth-child(odd) { border-top-color: var(--fwd); }
 .point:nth-child(even) { border-top-color: var(--def); }
 
-/* Squared off, like the boards and the scoreboard: no soft cards. */
+/* Squared off, like the boards: no soft cards. */
 .shots img, .shots video.trailer, .skin, .art { border-radius: 4px; }
 
 /* The last call: the two clubs again, faintly, either side of it. */
@@ -211,13 +202,6 @@ a:hover { color: #ffd27a; }
   .wordmark { width: min(72vw, 300px); }
   .sides { position: absolute; left: 16px; right: 16px; width: auto; top: 366px; }
   .sides { gap: 0 10px; margin-top: -4px; }
-  .scoreboard { margin: 28px 16px 0; }
-  .team { flex-direction: column; gap: 6px; padding: 10px 6px; font-size: 11px; letter-spacing: 0.14em; }
-  .team.fwd { flex-direction: column-reverse; align-items: center; }
-  .team.def { align-items: center; }
-  .team b { font-size: 38px; }
-  .clock { padding: 8px 10px; }
-  .clock span { white-space: normal; text-align: center; max-width: 70px; }
   .boards { margin-top: 44px; }
   .cta { background: linear-gradient(166deg, rgba(235, 77, 71, 0.10) 0 50%, rgba(77, 133, 242, 0.10) 50% 100%); padding-bottom: 48px; }
 }
