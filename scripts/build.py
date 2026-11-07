@@ -72,9 +72,9 @@ BOARDS = '<div class="boards" aria-hidden="true"></div>'
 
 page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a sport: Forwards arm the core, Defensemen hold the line. Climb the ranks, squad up.", "/", f"""<main>
 <section class="faceoff">
-  <img class="faceoff-shot" fetchpriority="high" src="/assets/art/faceoff.jpg" alt="Forwards and Defensemen trading fire across a glass bridge on Skyway" width="1920" height="886">
   <div class="faceoff-in">
     <img class="wordmark" fetchpriority="high" src="/assets/art/wordmark.png" alt="Nordant" width="1277" height="230">
+    <img class="matchup" fetchpriority="high" src="/assets/art/matchup.webp" srcset="/assets/art/matchup-900.webp 896w, /assets/art/matchup.webp 1792w" sizes="(max-width: 740px) 76vw, 560px" alt="A Forward and a Defenseman squared off, rifles up" width="1792" height="1051">
     <h1 class="sides">
       <span class="side fwd"><span class="club">Forwards</span><span class="call">Arm the core.</span></span>
       <span class="side def"><span class="club">Defensemen</span><span class="call">Hold the line.</span></span>
