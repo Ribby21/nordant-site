@@ -23,14 +23,14 @@ def feature(title, text):
 trailer = ('<video class="trailer" controls playsinline preload="none" poster="/assets/shots/trailer-poster.jpg" width="1280" height="720" aria-label="The Nordant trailer">'
            '<source src="/assets/trailer.mp4" type="video/mp4"></video>')
 shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
-    ("01-minnehaha", "A fight at the falls on Minnehaha"),
-    ("02-skins", "Polar Tech, Northern Lights and Lumberjack"),
-    ("03-locker", "Skins in the Locker: Polar Tech Superior, Northern Lights Fillet Knife, Lumberjack Timberwolf, Northern Lights Mosquito"),
-    ("04-bait-shop", "The Bait Shop: the Polar Tech bundle"),
-    ("05-season", "Season 1's pass, First Ice: the Fillet Knife, Timberwolf, Muskie and Skipstone"),
-    ("06-ranked", "The ranks, Slush to Aurora"),
-    ("07-full-time", "Ranked full time: a promotion to Glacier II"),
-    ("08-sandstone", "Disarming the core on Sandstone with a second left"),
+    ("01-minnehaha", "A fight in the river under the falls on Minnehaha"),
+    ("02-skyway", "A firefight across a glass bridge on Skyway"),
+    ("03-sandstone", "Disarming the core in zone A on Sandstone"),
+    ("04-skins", "Polar Tech, Northern Lights and Lumberjack"),
+    ("05-locker", "The Locker: a Forward and a Defenseman in the Captain hat and Northern Lights rings"),
+    ("06-bait-shop", "The Bait Shop: the Polar Tech bundle"),
+    ("07-season", "Season 1's pass, First Ice: the Fillet Knife, Timberwolf, Muskie and Skipstone"),
+    ("08-ranked", "Ranked: a new tier, Polar I"),
 ])
 
 # The skins, each a still until it's tapped, then doing its own thing in a loop (the user,
