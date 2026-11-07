@@ -257,7 +257,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Matches you search for are ranked (friends matches aren't). Your first five place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again.""" + (' The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.' if LEADERBOARD else "") + """</p>
 
 <h2>Moving to a new phone</h2>
-<p>Sign in with Google (in Settings) and your account, with your rank, friends, Nords and skins, comes with you: sign in with the same Google account on the new phone.</p>
+<p>Your account, with your rank, friends, Nords and skins, comes with you. On Android, the game signs you in with Google Play Games, so it's there on a new phone signed in to the same Google account; you can also sign in with Google in Settings. On iPhone and iPad, Game Center does the same, or sign in with Apple in Settings.</p>
 
 <h2>Deleting your account</h2>
 <p>In the game, open Settings and tap Delete account. See <a href="/delete-account">deleting your account</a> for what's deleted, or to ask us to do it for you.</p>
@@ -280,7 +280,7 @@ page("delete-account.html", "Delete your account", "How to delete your Nordant a
 
 <h2>What's deleted</h2>
 <ul>
-  <li>Your account and its sign-in sessions, and its link to Google, Apple or Game Center if you signed in with them.</li>
+  <li>Your account and its sign-in sessions, and its link to Google Play Games, Google, Apple or Game Center if you signed in with them.</li>
   <li>Your name and tag, your look, the skins you own and your Nords.</li>
   <li>Your rank, ranked results, season progress and challenges, and the matches recorded for them.</li>
   <li>Your friends, friend requests and parties.</li>
@@ -294,7 +294,7 @@ page("delete-account.html", "Delete your account", "How to delete your Nordant a
 
 page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you can do about it.", "/privacy", """<main class="prose">
 <h1>Privacy policy</h1>
-<p class="muted">Effective October 31, 2026</p>
+<p class="muted">Effective November 7, 2026</p>
 
 <p>Nordant is a game made by ribby.dev LLC ("we"). This page says what the game collects, why, and what you can do about it. The short version: no ads, no tracking, no selling your data, and no real name or location asked for. An email address is kept only if you choose to sign in with Google.</p>
 <p>Nordant is on Android and, soon, iPhone and iPad. Where something applies to only one of them, this page says so.</p>
@@ -303,7 +303,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
 <ul>
   <li><strong>A player account.</strong> When you first open the game it makes an anonymous account for you: a random ID, and when it was made and last used. It isn't tied to your name, email, phone number or contacts.</li>
   <li><strong>Your display name</strong>, the name other players see in matches and on the leaderboard, if you choose one, and your <strong>tag</strong> (six letters and numbers after it) that friends add you by.</li>
-  <li><strong>Google sign-in, if you use it.</strong> Signing in with Google is optional; it lets your account follow you to a new phone. If you do, we keep your Google account's ID and its email address, to link your account to it and show you which account you're signed in with. We don't get your password or anything else from your Google account.</li>
+  <li><strong>Google Play Games and Google sign-in, on Android, if you use them.</strong> The game signs you in to Google Play Games if your phone is signed in to it, so your account follows you to a new phone; you can also sign in with Google in Settings. For Google Play Games we keep your Play Games player ID, and, if you allow it, your Google account's ID and email address; for Google sign-in, your Google account's ID and email address. We keep them to link your account to them and show you which account you're signed in with. We don't get your password, and we don't keep your Play Games name, friends or anything else from your Google account.</li>
   <li><strong>Apple sign-in and Game Center, on iPhone and iPad, if you use them.</strong> The game signs you in to Game Center if your device is signed in to it, so your account follows you to a new device; you can also sign in with Apple in Settings. For either, we keep only the ID Apple gives your account for our games, to link it to your game account. We don't keep your Apple email address, your Game Center name or friends, or your password.</li>
   <li><strong>Friends and parties.</strong> The players you're friends with, friend requests and party invitations you send or receive, and whether you're online or in a match, which your friends can see.</li>
   <li><strong>Reports and blocks.</strong> The players you block, and reports you make about other players (who, why, any note you add, and the name they had), so we can act on them. If someone reports you, we keep that report and the name you had then. A name we take away after a report can't be used again.</li>
@@ -333,7 +333,7 @@ page("privacy.html", "Privacy policy", "What Nordant collects, why, and what you
   <li><strong>Railway</strong> hosts our server and its database.</li>
   <li><strong>Photon</strong> (Exit Games) connects players' devices for matches.</li>
   <li><strong>Edgegap</strong> runs the servers ranked matches are played on, and picks one near you from your connection.</li>
-  <li><strong>Google</strong>, for Google Play purchases, and if you sign in with Google.</li>
+  <li><strong>Google</strong>, for Google Play purchases, Google Play Games, and if you sign in with Google.</li>
   <li><strong>Apple</strong>, for App Store purchases, Game Center, and if you sign in with Apple.</li>
   <li><strong>RevenueCat</strong> checks purchases, as above.</li>
   <li><strong>Unity</strong>, the engine the game is built with.</li>
