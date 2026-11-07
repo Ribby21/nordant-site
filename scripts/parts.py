@@ -6,6 +6,8 @@ SITE = "https://playnordant.com"
 # home. True puts it all back (and add /leaderboard to sitemap.xml again).
 LEADERBOARD = False
 PLAY = "https://play.google.com/store/apps/details?id=dev.ribby.nordant"
+# iPhone and iPad, until the App Store: the public TestFlight link (the user, 2026-11-07).
+TESTFLIGHT = "https://testflight.apple.com/join/vvUufzZB"
 
 def head(title, description, path, noindex=False):
     full = title if title == "Nordant" else f"{title} · Nordant"

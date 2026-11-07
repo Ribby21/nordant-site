@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=0f740841bf">
+  <link rel="stylesheet" href="/styles.css?v=1c78ceefce">
 </head>
 <body>
 <header class="bar"><div class="bar-in">
@@ -30,8 +30,8 @@
 <main class="prose" style="text-align:center">
 <h1>Get Nordant</h1>
 <p class="muted">Arm the core. Hold the line.</p>
-<div class="badges" style="margin-top:24px"><a id="play" href="https://play.google.com/store/apps/details?id=dev.ribby.nordant"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a></div>
-<p class="muted">Coming to the App Store too.</p>
+<div class="badges" style="margin-top:24px"><a id="play" href="https://play.google.com/store/apps/details?id=dev.ribby.nordant"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a><a class="tf" href="https://testflight.apple.com/join/vvUufzZB"><span class="tf-small">iPhone &amp; iPad</span><span class="tf-big">TestFlight beta</span></a></div>
+<p class="muted">Coming to the App Store.</p>
 </main>
 <script>
 (function () {
@@ -40,6 +40,9 @@
   var play = "https://play.google.com/store/apps/details?id=dev.ribby.nordant&referrer=" + encodeURIComponent("utm_source=" + src + "&utm_medium=link");
   document.getElementById("play").href = play;
   if (/android/i.test(navigator.userAgent || "")) location.replace(play);
+  // On an iPhone or iPad, straight to the TestFlight beta. (An iPad says it's a Mac: one with a touch screen isn't.)
+  else if (/iphone|ipad|ipod/i.test(navigator.userAgent || "") || (/macintosh/i.test(navigator.userAgent || "") && navigator.maxTouchPoints > 1))
+    location.replace("https://testflight.apple.com/join/vvUufzZB");
 })();
 </script>
 <footer class="foot"><div class="foot-in">

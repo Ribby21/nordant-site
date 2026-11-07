@@ -38,6 +38,12 @@ a:hover { color: #ffd27a; }
 .badges { display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; }
 .badges img { height: 64px; }
 .soon { color: var(--muted); font-size: 14px; margin-top: 10px; }
+/* The TestFlight button, the height and weight of the Play badge beside it (the badge image has 10px of air round it). */
+.tf { display: inline-flex; flex-direction: column; justify-content: center; height: 44px; padding: 0 16px; margin: 10px 0;
+  background: #000; color: #fff; border: 1px solid #a6a6a6; border-radius: 8px; text-decoration: none; line-height: 1.1; text-align: left; }
+.tf:hover { text-decoration: none; border-color: #fff; }
+.tf-small { font-size: 11px; }
+.tf-big { font-size: 19px; font-weight: 600; letter-spacing: 0.01em; }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
 .section { padding: 64px 0 8px; }
@@ -73,6 +79,8 @@ a:hover { color: #ffd27a; }
   .pitch { margin-top: -8px; }
   .pitch p { font-size: 17px; }
   .badges img { height: 56px; }
+  .tf { height: 38px; margin: 9px 0; }
+  .tf-big { font-size: 17px; }
   .cta { padding: 48px 16px 8px; }
 }
 
