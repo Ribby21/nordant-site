@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=4ce23d0bb0">
+  <link rel="stylesheet" href="/styles.css?v=107748fd00">
 </head>
 <body>
 <header class="bar"><div class="bar-in">
@@ -28,12 +28,26 @@
   <nav class="nav"><a href="/support">Support</a><a class="hide-sm" href="/get">Get the game</a></nav>
 </div></header>
 <main>
-<div class="hero"><img src="/assets/hero.jpg" alt="Nordant: a match on a snowy rooftop" width="1024" height="500"></div>
+<section class="faceoff">
+  <img class="faceoff-shot" fetchpriority="high" src="/assets/art/faceoff.jpg" alt="Forwards and Defensemen trading fire across a glass bridge on Skyway" width="1920" height="886">
+  <div class="faceoff-in">
+    <img class="wordmark" fetchpriority="high" src="/assets/art/wordmark.png" alt="Nordant" width="1277" height="230">
+    <h1 class="sides">
+      <span class="side fwd"><span class="club">Forwards</span><span class="call">Arm the core.</span></span>
+      <span class="side def"><span class="club">Defensemen</span><span class="call">Hold the line.</span></span>
+    </h1>
+  </div>
+</section>
 <section class="pitch">
-  <h1>Arm the core. Hold the line.</h1>
-  <p>Five a side. One life a round. Every online match ranked. Squad up and climb.</p>
+  <p>Rounds, cash and one life each. Climb Slush to Aurora with your squad.</p>
   <div class="badges"><a href="https://play.google.com/store/apps/details?id=dev.ribby.nordant"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a><a href="https://testflight.apple.com/join/vvUufzZB"><img class="apple" alt="Download on the App Store" src="/assets/app-store-badge.svg"></a></div>
 </section>
+<div class="scoreboard" role="img" aria-label="Forwards five, Defensemen five, one life a round">
+  <div class="team fwd"><span>Forwards</span><b>5</b></div>
+  <div class="clock"><b>1</b><span>Life a round</span></div>
+  <div class="team def"><b>5</b><span>Defensemen</span></div>
+</div>
+<div class="boards" aria-hidden="true"></div>
 
 <div class="wrap">
 <section class="section">
@@ -41,9 +55,9 @@
 </section>
 
 <section class="section">
-  <h2>How it plays</h2>
+  <p class="kicker">The game</p><h2>How it plays</h2>
   <div class="points">
-    <div class="point"><h3>Ranked from match one</h3><p>Every online match counts. Climb eight tiers, Slush to Aurora, with your squad beside you.</p></div>
+    <div class="point"><h3>Climb the ladder</h3><p>Ranked matches move you through eight tiers, Slush to Aurora, with your squad beside you.</p></div>
     <div class="point"><h3>Arm it. Retake it.</h3><p>Forwards carry the core into a zone and arm it. Defensemen hold, retake, and disarm it before it blows. Sides swap at halftime.</p></div>
     <div class="point"><h3>Your money, your call</h3><p>Win rounds, earn cash, buy your loadout: rifles, snipers, armor, smokes and flashes. Save when you're broke. Go big when you're not.</p></div>
     <div class="point"><h3>Arenas that fight back</h3><p>A quarry rink with a Zamboni that clears the ice (and you), a firefight round the falls, a city in winter. Every map has moving parts.</p></div>
@@ -51,25 +65,23 @@
 </section>
 
 <section class="section" id="skins">
-  <p class="kicker">Skins</p>
-  <h2>Polar Tech. Northern Lights. Lumberjack.</h2>
+  <p class="kicker">Skins</p><h2>Polar Tech. Northern Lights. Lumberjack.</h2>
   <div class="skins"><figure class="skin l-polar"><button type="button" class="play" aria-label="Play the Polar Tech North Star" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/polar-tech-north-star.jpg" width="960" height="540"><source src="/assets/skins/polar-tech-north-star.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Polar Tech</b><span>North Star</span></figcaption></figure><figure class="skin l-polar"><button type="button" class="play" aria-label="Play the Polar Tech Superior" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/polar-tech-superior.jpg" width="960" height="540"><source src="/assets/skins/polar-tech-superior.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Polar Tech</b><span>Superior</span></figcaption></figure><figure class="skin l-polar"><button type="button" class="play" aria-label="Play the Polar Tech Loon" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/polar-tech-loon.jpg" width="960" height="540"><source src="/assets/skins/polar-tech-loon.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Polar Tech</b><span>Loon</span></figcaption></figure><figure class="skin l-northern"><button type="button" class="play" aria-label="Play the Northern Lights Fillet Knife" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/northern-lights-knife.jpg" width="960" height="540"><source src="/assets/skins/northern-lights-knife.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Northern Lights</b><span>Fillet Knife</span></figcaption></figure><figure class="skin l-northern"><button type="button" class="play" aria-label="Play the Northern Lights Mosquito" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/northern-lights-mosquito.jpg" width="960" height="540"><source src="/assets/skins/northern-lights-mosquito.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Northern Lights</b><span>Mosquito</span></figcaption></figure><figure class="skin l-northern"><button type="button" class="play" aria-label="Play the Northern Lights Blizzard" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/northern-lights-blizzard.jpg" width="960" height="540"><source src="/assets/skins/northern-lights-blizzard.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Northern Lights</b><span>Blizzard</span></figcaption></figure><figure class="skin l-lumberjack"><button type="button" class="play" aria-label="Play the Lumberjack Timberwolf" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/lumberjack-timberwolf.jpg" width="960" height="540"><source src="/assets/skins/lumberjack-timberwolf.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Lumberjack</b><span>Timberwolf</span></figcaption></figure><figure class="skin l-lumberjack"><button type="button" class="play" aria-label="Play the Lumberjack Taconite" aria-pressed="false"><video muted loop playsinline preload="none" poster="/assets/skins/lumberjack-taconite.jpg" width="960" height="540"><source src="/assets/skins/lumberjack-taconite.mp4" type="video/mp4"></video><span class="go" aria-hidden="true"></span></button><figcaption><b>Lumberjack</b><span>Taconite</span></figcaption></figure></div>
 </section>
 
 <section class="section">
-  <p class="kicker">Season pass</p>
-  <h2>Season 1: First Ice</h2>
+  <p class="kicker">Season pass</p><h2>Season 1: First Ice</h2>
   <img class="art" src="/assets/art/season-1.jpg" alt="Season 1 pass, First Ice: the Fillet Knife at tier 50, the Timberwolf at 35, the Muskie at 30, the Skipstone at 15" loading="lazy" width="1920" height="1080">
 </section>
 
 <section class="section">
-  <p class="kicker">Ranked</p>
-  <h2>Slush to Aurora</h2>
+  <p class="kicker">Ranked</p><h2>Slush to Aurora</h2>
   <img class="art" src="/assets/art/ranked.jpg" alt="The eight ranks, Slush to Aurora" loading="lazy" width="1920" height="1080">
   
 </section>
 </div>
 
+<div class="boards" aria-hidden="true"></div>
 <section class="cta">
   <h2>Drop in.</h2>
   <div class="badges"><a href="https://play.google.com/store/apps/details?id=dev.ribby.nordant"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a><a href="https://testflight.apple.com/join/vvUufzZB"><img class="apple" alt="Download on the App Store" src="/assets/app-store-badge.svg"></a></div>

@@ -61,13 +61,36 @@ def point(title, text):
     return f'<div class="point"><h3>{title}</h3><p>{text}</p></div>'
 
 
+def section_head(label, title):
+    """A section's heading: what it is, small in amber, then its name."""
+    return f'<p class="kicker">{label}</p><h2>{title}</h2>'
+
+
+# The arena's boards: a strip of their chevrons between the home page's parts (the game's own, on Sandstone's rink).
+BOARDS = '<div class="boards" aria-hidden="true"></div>'
+
+
 page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a sport: Forwards arm the core, Defensemen hold the line. Climb the ranks, squad up.", "/", f"""<main>
-<div class="hero"><img src="/assets/hero.jpg" alt="Nordant: a match on a snowy rooftop" width="1024" height="500"></div>
+<section class="faceoff">
+  <img class="faceoff-shot" fetchpriority="high" src="/assets/art/faceoff.jpg" alt="Forwards and Defensemen trading fire across a glass bridge on Skyway" width="1920" height="886">
+  <div class="faceoff-in">
+    <img class="wordmark" fetchpriority="high" src="/assets/art/wordmark.png" alt="Nordant" width="1277" height="230">
+    <h1 class="sides">
+      <span class="side fwd"><span class="club">Forwards</span><span class="call">Arm the core.</span></span>
+      <span class="side def"><span class="club">Defensemen</span><span class="call">Hold the line.</span></span>
+    </h1>
+  </div>
+</section>
 <section class="pitch">
-  <h1>Arm the core. Hold the line.</h1>
-  <p>Five a side. One life a round. Every online match ranked. Squad up and climb.</p>
+  <p>Rounds, cash and one life each. Climb Slush to Aurora with your squad.</p>
   <div class="badges">{BADGE}{APPLE_BADGE}</div>
 </section>
+<div class="scoreboard" role="img" aria-label="Forwards five, Defensemen five, one life a round">
+  <div class="team fwd"><span>Forwards</span><b>5</b></div>
+  <div class="clock"><b>1</b><span>Life a round</span></div>
+  <div class="team def"><b>5</b><span>Defensemen</span></div>
+</div>
+{BOARDS}
 
 <div class="wrap">
 <section class="section">
@@ -75,9 +98,9 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 </section>
 
 <section class="section">
-  <h2>How it plays</h2>
+  {section_head("The game", "How it plays")}
   <div class="points">
-    {point("Ranked from match one", "Every online match counts. Climb eight tiers, Slush to Aurora, with your squad beside you.")}
+    {point("Climb the ladder", "Ranked matches move you through eight tiers, Slush to Aurora, with your squad beside you.")}
     {point("Arm it. Retake it.", "Forwards carry the core into a zone and arm it. Defensemen hold, retake, and disarm it before it blows. Sides swap at halftime.")}
     {point("Your money, your call", "Win rounds, earn cash, buy your loadout: rifles, snipers, armor, smokes and flashes. Save when you're broke. Go big when you're not.")}
     {point("Arenas that fight back", "A quarry rink with a Zamboni that clears the ice (and you), a firefight round the falls, a city in winter. Every map has moving parts.")}
@@ -85,25 +108,23 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 </section>
 
 <section class="section" id="skins">
-  <p class="kicker">Skins</p>
-  <h2>Polar Tech. Northern Lights. Lumberjack.</h2>
+  {section_head("Skins", "Polar Tech. Northern Lights. Lumberjack.")}
   <div class="skins">{skins}</div>
 </section>
 
 <section class="section">
-  <p class="kicker">Season pass</p>
-  <h2>Season 1: First Ice</h2>
+  {section_head("Season pass", "Season 1: First Ice")}
   <img class="art" src="/assets/art/season-1.jpg" alt="Season 1 pass, First Ice: the Fillet Knife at tier 50, the Timberwolf at 35, the Muskie at 30, the Skipstone at 15" loading="lazy" width="1920" height="1080">
 </section>
 
 <section class="section">
-  <p class="kicker">Ranked</p>
-  <h2>Slush to Aurora</h2>
+  {section_head("Ranked", "Slush to Aurora")}
   <img class="art" src="/assets/art/ranked.jpg" alt="The eight ranks, Slush to Aurora" loading="lazy" width="1920" height="1080">
   {'<p class="muted">See who' + chr(39) + 's on top this season, and of all time, on <a href="/leaderboard">the leaderboard</a>.</p>' if LEADERBOARD else ""}
 </section>
 </div>
 
+{BOARDS}
 <section class="cta">
   <h2>Drop in.</h2>
   <div class="badges">{BADGE}{APPLE_BADGE}</div>
@@ -238,7 +259,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Each season lasts about three months and has 50 tiers. Matches earn XP (more for a win), and so do the three daily and three weekly challenges. Free-track rewards are yours as you reach each tier. Get the premium pass with Nords to unlock the premium track too, including every premium reward up to the tier you've already reached.</p>
 
 <h2>How does ranked play work?</h2>
-<p>Every online match is ranked. Your first five matches place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again.""" + (' The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.' if LEADERBOARD else "") + """</p>
+<p>Matches you search for are ranked (friends matches aren't). Your first five place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again.""" + (' The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.' if LEADERBOARD else "") + """</p>
 
 <h2>Moving to a new phone</h2>
 <p>Sign in with Google (in Settings) and your account, with your rank, friends, Nords and skins, comes with you: sign in with the same Google account on the new phone.</p>
