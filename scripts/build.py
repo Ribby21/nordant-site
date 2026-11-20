@@ -26,12 +26,12 @@ trailer = ('<video class="trailer" controls playsinline preload="none" poster="/
            '<source src="/assets/trailer.mp4" type="video/mp4"></video>')
 shots = trailer + "".join(f'<img src="/assets/shots/{n}.jpg" alt="{alt}" loading="lazy" width="1280" height="720">' for n, alt in [
     ("01-minnehaha", "A fight in the river under the falls on Minnehaha"),
-    ("02-skyway", "A firefight across a glass bridge on Skyway"),
+    ("02-gungame", "Gun Game on Skyway: a hat trick on the fifth gun of the ladder"),
     ("03-sandstone", "Disarming the core in zone A on Sandstone"),
-    ("04-skins", "Polar Tech, Northern Lights and Lumberjack"),
-    ("05-locker", "The Locker: a Forward and a Defenseman in the Captain hat and Northern Lights rings"),
-    ("06-bait-shop", "The Bait Shop: the Polar Tech bundle"),
-    ("07-season", "Season 1's pass, First Ice: the Fillet Knife, Timberwolf, Muskie and Skipstone"),
+    ("04-gungame-falls", "Gun Game at Minnehaha's falls: up to the Muskie"),
+    ("05-home", "Home: the Locker and the Bait Shop"),
+    ("06-skins", "Polar Tech, Northern Lights and Lumberjack"),
+    ("07-locker", "The Locker: a Forward and a Defenseman in the Captain hat and Northern Lights rings"),
     ("08-ranked", "Ranked: a new tier, Polar I"),
 ])
 
