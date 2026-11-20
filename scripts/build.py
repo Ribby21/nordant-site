@@ -99,6 +99,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
     {point("Arm it. Retake it.", "Forwards carry the core into a zone and arm it. Defensemen hold, retake, and disarm it before it blows. Sides swap at halftime.")}
     {point("Your money, your call", "Win rounds, earn cash, buy your loadout: rifles, snipers, armor, smokes and flashes. Save when you're broke. Go big when you're not.")}
     {point("Arenas that fight back", "A quarry rink with a Zamboni that clears the ice (and you), a firefight round the falls, a city in winter. Every map has moving parts.")}
+    {point("Gun Game", "Everyone against everyone, up a ladder of eleven guns. Two knockouts on each to move up, and the Fillet Knife last.")}
   </div>
 </section>
 
@@ -108,7 +109,7 @@ page("index.html", "Nordant", "Nordant is a tactical 5v5 shooter played as a spo
 </section>
 
 <section class="section">
-  {section_head("Season pass", "Season 1: First Ice")}
+  {section_head("Season pass · coming soon", "Season 1: First Ice")}
   <img class="art" src="/assets/art/season-1.jpg" alt="Season 1 pass, First Ice: the Fillet Knife at tier 50, the Timberwolf at 35, the Muskie at 30, the Skipstone at 15" loading="lazy" width="1920" height="1080">
 </section>
 
@@ -242,7 +243,10 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Found a bug, or have an idea? Write to <a href="mailto:support@playnordant.com">support@playnordant.com</a>. Say which phone you play on, the name you play under, and what happened, and we'll get back to you.</p>
 
 <h2>How do I play?</h2>
-<p>Drag in the bottom-left corner of the screen to move. Tap anywhere else to aim and shoot, and hold to keep firing. With a sniper, touch to line up your shot and lift to fire; flick along your aim to scope in, and back the other way to scope out. The tutorial (How to play, on the menu) walks you through a round, and the practice range is there to warm up.</p>
+<p>Drag in the bottom-left corner of the screen to move. With Auto aim (the default) you face the way you move, and holding FIRE HERE in the bottom-right corner shoots the nearest enemy ahead; scope in to strafe. The AIM button beside the map switches to Tap to aim at any moment, mid-fight too: tap where to shoot, and hold to keep firing. Settings keeps your pick. The tutorial (How to play, on the menu) walks you through a round with both, and the practice range is there to warm up.</p>
+
+<h2>What's Gun Game?</h2>
+<p>Everyone against everyone, up a ladder of eleven guns, from the Loon to the Fillet Knife. Two knockouts on a gun move you to the next; the second knockout with the knife wins. Play it against bots, with friends in a lobby, or search for a match online. Gun Game isn't ranked.</p>
 
 <h2>What are Nords?</h2>
 <p>The game's own currency, spent in the Bait Shop on skins (worn from the Locker) and on the premium season pass. You get them from the season pass's free track by playing, or buy them in packs on the Get Nords screen. Skins remake the look of you and your guns, right down to their animations and sounds. All style, no edge: they never change how you play.</p>
@@ -254,7 +258,7 @@ page("support.html", "Support", "Help with Nordant: how to play, Nords and purch
 <p>Each season lasts about three months and has 50 tiers. Matches earn XP (more for a win), and so do the three daily and three weekly challenges. Free-track rewards are yours as you reach each tier. Get the premium pass with Nords to unlock the premium track too, including every premium reward up to the tier you've already reached.</p>
 
 <h2>How does ranked play work?</h2>
-<p>Matches you search for are ranked (friends matches aren't). Your first five place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again.""" + (' The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.' if LEADERBOARD else "") + """</p>
+<p>Classic matches you search for are ranked (friends matches and Gun Game aren't). Your first five place you; after that, winning moves you up through the tiers, from Slush to Aurora, and losing moves you down. Leaving a ranked match early counts as a loss. Each new season moves every rank halfway back toward where everyone starts, with three matches to place again.""" + (' The best players this season, and the best ever, are on <a href="/leaderboard">the leaderboard</a>.' if LEADERBOARD else "") + """</p>
 
 <h2>Moving to a new phone</h2>
 <p>Your account, with your rank, friends, Nords and skins, comes with you. On Android, the game signs you in with Google Play Games, so it's there on a new phone signed in to the same Google account; you can also sign in with Google in Settings. On iPhone and iPad, Game Center does the same, or sign in with Apple in Settings.</p>

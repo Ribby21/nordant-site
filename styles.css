@@ -58,7 +58,8 @@ a:hover { color: #ffd27a; }
 .cta h2 { font: 700 clamp(28px, 4.5vw, 40px)/1.1 var(--display); margin: 0 0 22px; }
 
 /* What the game is, in four lines: side by side on a wide screen, one under another on a phone. */
-.points { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.points { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+@media (max-width: 1180px) { .points { grid-template-columns: repeat(3, 1fr); } }
 .point { border-top: 2px solid var(--amber); padding-top: 14px; }
 .point h3 { font: 700 21px/1.2 var(--display); letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 6px; }
 .point p { color: var(--muted); margin: 0; font-size: 16px; }
