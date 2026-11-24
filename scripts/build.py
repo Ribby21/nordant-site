@@ -5,7 +5,7 @@ from parts import head, bar, FOOT, PLAY, APP_STORE, SITE, LEADERBOARD
 
 OUT = sys.argv[1]
 BADGE = f'<a href="{PLAY}"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a>'
-# Apple's own badge (from Apple's marketing tools, kept here: the old tools address went dead), going to APP_STORE (TestFlight for now).
+# Apple's own badge (from Apple's marketing tools, kept here: the old tools address went dead), going to APP_STORE (the App Store page).
 APPLE_BADGE = f'<a href="{APP_STORE}"><img class="apple" alt="Download on the App Store" src="/assets/app-store-badge.svg"></a>'
 TIERS = ["Slush", "Frost", "Pine", "Granite", "Agate", "Glacier", "Polar", "Aurora"]
 API = "https://api-production-51079.up.railway.app"
@@ -228,7 +228,7 @@ page("get.html", "Get the game", "Get Nordant on Android and iPhone.", "/get", f
   var play = "{PLAY}&referrer=" + encodeURIComponent("utm_source=" + src + "&utm_medium=link");
   document.getElementById("play").href = play;
   if (/android/i.test(navigator.userAgent || "")) location.replace(play);
-  // On an iPhone or iPad, straight to the App Store (TestFlight for now). (An iPad says it's a Mac: one with a touch screen isn't.)
+  // On an iPhone or iPad, straight to the App Store. (An iPad says it's a Mac: one with a touch screen isn't.)
   else if (/iphone|ipad|ipod/i.test(navigator.userAgent || "") || (/macintosh/i.test(navigator.userAgent || "") && navigator.maxTouchPoints > 1))
     location.replace("{APP_STORE}");
 }})();
