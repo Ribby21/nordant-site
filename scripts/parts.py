@@ -6,9 +6,9 @@ SITE = "https://playnordant.com"
 # home. True puts it all back (and add /leaderboard to sitemap.xml again).
 LEADERBOARD = False
 PLAY = "https://play.google.com/store/apps/details?id=dev.ribby.nordant"
-# Where the App Store badge goes: the game's App Store page (the public TestFlight link until
-# iOS 1.0 was approved, 2026-11-24).
-APP_STORE = "https://apps.apple.com/app/id6829590300"
+# Where the App Store badge goes: the public TestFlight link until the App Store page is live,
+# then that page's address here, and nothing else changes (the user, 2026-11-07).
+APP_STORE = "https://testflight.apple.com/join/vvUufzZB"
 
 def head(title, description, path, noindex=False):
     full = title if title == "Nordant" else f"{title} · Nordant"
